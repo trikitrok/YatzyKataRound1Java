@@ -15,12 +15,11 @@ public class YatzyTest {
     public void game_console_output() {
         Console console = context.mock(Console.class);
         DieRoller dieRoller = context.mock(DieRoller.class);
-        UserInput userInput = context.mock(UserInput.class);
 
-        Yatzy yatzy = new Yatzy(console, userInput, dieRoller, new ConsoleNotifier(console));
+        Yatzy yatzy = new Yatzy(console, dieRoller, new ConsoleNotifier(console));
 
         context.checking(new Expectations() {{
-            oneOf(userInput).read();
+            atLeast(1).of(console).readLine();
             will(onConsecutiveCalls(returnValue("D1 D2 D4")));
             atLeast(1).of(dieRoller).roll();
             will(onConsecutiveCalls(
