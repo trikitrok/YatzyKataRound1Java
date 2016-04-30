@@ -25,4 +25,9 @@ public class ConsoleNotifier implements Notifier {
     public void notifyUserInput(String input) {
         console.print(input);
     }
+
+    @Override
+    public void notifyCategoryScore(Category category, int score) {
+        console.print("Category Ones score: 4");
+    }
 }

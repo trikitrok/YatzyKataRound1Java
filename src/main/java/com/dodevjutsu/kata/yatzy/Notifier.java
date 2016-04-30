@@ -8,4 +8,6 @@ public interface Notifier {
     void askForDiceToRerun(int rerunNumber);
 
     void notifyUserInput(String input);
+
+    void notifyCategoryScore(Category category, int score);
 }

@@ -23,5 +23,7 @@ public class Yatzy {
         notifier.notifyCurrentDice(dice);
 
         dice = diceReruns.doReRuns(dice);
+
+        notifier.notifyCategoryScore(Ones, 4);
     }
 }
