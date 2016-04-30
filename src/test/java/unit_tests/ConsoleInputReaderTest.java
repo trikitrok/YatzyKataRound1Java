@@ -13,7 +13,7 @@ import java.util.Arrays;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
-public class ConsoleUserInputReaderTest {
+public class ConsoleInputReaderTest {
     @Test
     public void reads_dice_to_reroll() {
         Mockery context = new Mockery();
