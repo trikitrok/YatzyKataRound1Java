@@ -1,7 +1,5 @@
 package com.dodevjutsu.kata.yatzy;
 
-import java.util.List;
-
 import static com.dodevjutsu.kata.yatzy.Category.Ones;
 
 public class Yatzy {
@@ -26,9 +24,9 @@ public class Yatzy {
         }
     }
 
-    private Dice doRerun(Dice dice, int rerollNumber) {
-        notifier.askForDiceToReroll(rerollNumber);
-        dice = diceRoller.roll(dice, inputReader.diceToReroll());
+    private Dice doRerun(Dice dice, int rerunNumber) {
+        notifier.askForDiceToRerun(rerunNumber);
+        dice = diceRoller.roll(dice, inputReader.diceToRerun());
         notifier.notifyCurrentDice(dice);
         return dice;
     }

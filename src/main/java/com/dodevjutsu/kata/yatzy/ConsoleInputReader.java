@@ -11,7 +11,7 @@ public class ConsoleInputReader implements InputReader {
         this.notifier = notifier;
     }
 
-    public List<Integer> diceToReroll() {
+    public List<Integer> diceToRerun() {
         String line = console.readLine();
         notifier.notifyUserInput(line);
         return new InputLine(line).extractDiceIndexes();

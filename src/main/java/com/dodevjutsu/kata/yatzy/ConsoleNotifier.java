@@ -17,8 +17,8 @@ public class ConsoleNotifier implements Notifier {
     }
 
     @Override
-    public void askForDiceToReroll(int rerollNumber) {
-        console.print("[" + rerollNumber + "] Dice to re-run:");
+    public void askForDiceToRerun(int rerunNumber) {
+        console.print("[" + rerunNumber + "] Dice to re-run:");
     }
 
     @Override

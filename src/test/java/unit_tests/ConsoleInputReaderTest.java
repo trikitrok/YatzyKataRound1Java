@@ -2,7 +2,6 @@ package unit_tests;
 
 import com.dodevjutsu.kata.yatzy.Console;
 import com.dodevjutsu.kata.yatzy.ConsoleInputReader;
-import com.dodevjutsu.kata.yatzy.Dice;
 import com.dodevjutsu.kata.yatzy.Notifier;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
@@ -29,6 +28,6 @@ public class ConsoleInputReaderTest {
             oneOf(notifier).notifyUserInput("D1 D2 D4");
         }});
 
-        assertThat(consoleInputReader.diceToReroll(), is(Arrays.asList(0, 1, 3)));
+        assertThat(consoleInputReader.diceToRerun(), is(Arrays.asList(0, 1, 3)));
     }
 }
