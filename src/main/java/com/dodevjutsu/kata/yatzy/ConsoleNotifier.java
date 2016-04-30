@@ -1,6 +1,6 @@
 package com.dodevjutsu.kata.yatzy;
 
-public class ConsoleNotifier {
+public class ConsoleNotifier implements Notifier {
     private final Console console;
 
     public ConsoleNotifier(Console console) {

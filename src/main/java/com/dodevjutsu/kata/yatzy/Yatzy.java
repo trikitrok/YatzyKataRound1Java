@@ -2,19 +2,23 @@ package com.dodevjutsu.kata.yatzy;
 
 import java.util.List;
 
+import static com.dodevjutsu.kata.yatzy.Category.Ones;
+
 public class Yatzy {
     private final Console console;
     private final UserInput userInput;
     private final DiceRoller diceRoller;
+    private final Notifier notifier;
 
-    public Yatzy(Console console, UserInput userInput, DiceRoller diceRoller) {
+    public Yatzy(Console console, UserInput userInput, DiceRoller diceRoller, Notifier notifier) {
         this.console = console;
         this.userInput = userInput;
         this.diceRoller = diceRoller;
+        this.notifier = notifier;
     }
 
     public void play() {
-        console.print("Category: Ones");
+        notifier.notifyCategory(Ones);
         Dice dice = diceRoller.rollAll();
         console.print(dice.lastRolls());
         console.print("[1] Dice to re-run:");
