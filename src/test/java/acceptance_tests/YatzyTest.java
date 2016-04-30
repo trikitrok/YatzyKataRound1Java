@@ -17,7 +17,7 @@ public class YatzyTest {
         DieRoller dieRoller = context.mock(DieRoller.class);
         UserInput userInput = context.mock(UserInput.class);
 
-        Yatzy yatzy = new Yatzy(console, userInput, new DiceRoller(dieRoller), new ConsoleNotifier(console));
+        Yatzy yatzy = new Yatzy(console, userInput, dieRoller, new ConsoleNotifier(console));
 
         context.checking(new Expectations() {{
             oneOf(userInput).read();

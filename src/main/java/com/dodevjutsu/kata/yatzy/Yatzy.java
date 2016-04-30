@@ -10,10 +10,10 @@ public class Yatzy {
     private final DiceRoller diceRoller;
     private final Notifier notifier;
 
-    public Yatzy(Console console, UserInput userInput, DiceRoller diceRoller, Notifier notifier) {
+    public Yatzy(Console console, UserInput userInput, DieRoller dieRoller, Notifier notifier) {
         this.console = console;
         this.userInput = userInput;
-        this.diceRoller = diceRoller;
+        this.diceRoller = new DiceRoller(dieRoller);
         this.notifier = notifier;
     }
 
