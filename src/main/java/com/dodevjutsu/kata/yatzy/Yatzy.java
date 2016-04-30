@@ -21,14 +21,15 @@ public class Yatzy {
         Dice dice = diceRoller.rollAll();
         notifier.notifyCurrentDice(dice);
 
-        notifier.askForDiceToReroll(1);
-        List<Integer> diceToRerun = inputReader.diceToReroll();
-        dice = diceRoller.roll(dice, diceToRerun);
-        notifier.notifyCurrentDice(dice);
+        for(int i=1; i<=2; i++) {
+            dice = doRerun(dice, i);
+        }
+    }
 
-        notifier.askForDiceToReroll(2);
-        diceToRerun = inputReader.diceToReroll();
-        dice = diceRoller.roll(dice, diceToRerun);
+    private Dice doRerun(Dice dice, int rerollNumber) {
+        notifier.askForDiceToReroll(rerollNumber);
+        dice = diceRoller.roll(dice, inputReader.diceToReroll());
         notifier.notifyCurrentDice(dice);
+        return dice;
     }
 }
