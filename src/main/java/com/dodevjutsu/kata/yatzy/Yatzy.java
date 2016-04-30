@@ -1,5 +1,7 @@
 package com.dodevjutsu.kata.yatzy;
 
+import java.util.List;
+
 public class Yatzy {
     private final Console console;
     private final UserInput userInput;
@@ -16,7 +18,12 @@ public class Yatzy {
         Dice dice = diceRoller.rollAll();
         console.print(dice.lastRolls());
         console.print("[1] Dice to re-run:");
-        console.print(userInput.read());
-        console.print("Dice: D1:1 D2:5 D3:1 D4:2 D5:1");
+
+        String userInputLine = userInput.read();
+        console.print(userInputLine);
+
+        List<Integer> diceToRerun = new InputLine(userInputLine).extractDiceIndexes();
+        dice = diceRoller.roll(dice, diceToRerun);
+        console.print(dice.lastRolls());
     }
 }
