@@ -1,8 +1,8 @@
 package com.dodevjutsu.kata.yatzy;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class InputLine {
     private final String content;
@@ -12,15 +12,18 @@ public class InputLine {
     }
 
     public List<Integer> extractDiceNumbers() {
-        List<Integer> diceNumbers = new ArrayList<>();
-
         String[] tokens = content.split(" ");
+        return Stream.of(tokens)
+            .map(this::toDiceNumber)
+            .map(this::toDiceIndex)
+            .collect(Collectors.toList());
+    }
 
-        for(int i=0; i<tokens.length; i++) {
-            Integer diceNumber = Integer.parseInt(tokens[i].substring(1)) - 1;
-            diceNumbers.add(diceNumber);
-        }
+    private int toDiceIndex(Integer diceNumber) {
+        return diceNumber - 1;
+    }
 
-        return diceNumbers;
+    private int toDiceNumber(String token) {
+        return Integer.parseInt(token.substring(1));
     }
 }
