@@ -13,7 +13,7 @@ public class Yatzy {
 
     public void play() {
         console.print("Category: Ones");
-        Dice dice = diceRoller.roll();
+        Dice dice = diceRoller.rollAll();
         console.print(dice.lastRolls());
         console.print("[1] Dice to re-run:");
         console.print(userInput.read());

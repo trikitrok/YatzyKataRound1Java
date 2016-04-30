@@ -2,7 +2,6 @@ package com.dodevjutsu.kata.yatzy;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 public class DiceRoller {
@@ -12,9 +11,9 @@ public class DiceRoller {
         this.dieRoller = dieRoller;
     }
 
-    public Dice roll() {
+    public Dice rollAll() {
         List<Side> sides = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < Dice.NUMBER; i++) {
             sides.add(dieRoller.roll());
         }
         return new Dice(sides);
@@ -22,7 +21,6 @@ public class DiceRoller {
 
     public Dice roll(Dice dice, List<Integer> diceToRerollIndexes) {
         Side[] sides = dice.sides().toArray(new Side[0]);
-
         for(int i = 0; i<diceToRerollIndexes.size(); i++) {
             sides[diceToRerollIndexes.get(i)] = dieRoller.roll();
         }

@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class Dice {
+    public static final int NUMBER = 5;
     List<Side> sides;
 
     public Dice(List<Side> sides) {
@@ -16,6 +17,10 @@ public class Dice {
             diceLine += "D" + (i + 1) + ":" + sides.get(i) + " ";
         }
         return diceLine.trim();
+    }
+
+    public List<Side> sides() {
+        return Collections.unmodifiableList(sides);
     }
 
     @Override
@@ -33,15 +38,10 @@ public class Dice {
         Dice dice = (Dice) o;
 
         return sides != null ? sides.equals(dice.sides) : dice.sides == null;
-
     }
 
     @Override
     public int hashCode() {
         return sides != null ? sides.hashCode() : 0;
-    }
-
-    public List<Side> sides() {
-        return Collections.unmodifiableList(sides);
     }
 }
