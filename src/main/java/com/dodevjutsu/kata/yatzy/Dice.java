@@ -7,15 +7,9 @@ public class Dice {
     private final DieRoller dieRoller;
     List<Side> sides;
 
-    public Dice(DieRoller dieRoller) {
-        this.dieRoller = dieRoller;
-    }
-
-    public void roll() {
-        sides = new ArrayList<>();
-        for (int i = 0; i < 5; i++) {
-            sides.add(dieRoller.roll());
-        }
+    public Dice(List<Side> sides) {
+        this.sides = sides;
+        dieRoller = null;
     }
 
     String lastRolls() {
