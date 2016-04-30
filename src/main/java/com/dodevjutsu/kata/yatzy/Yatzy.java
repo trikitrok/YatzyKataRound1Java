@@ -20,7 +20,7 @@ public class Yatzy {
     public void play() {
         notifier.notifyCategory(Ones);
         Dice dice = diceRoller.rollAll();
-        console.print(dice.lastRolls());
+        notifier.notifyCurrentDice(dice);
         console.print("[1] Dice to re-run:");
 
         String userInputLine = userInput.read();
@@ -28,6 +28,6 @@ public class Yatzy {
 
         List<Integer> diceToRerun = new InputLine(userInputLine).extractDiceIndexes();
         dice = diceRoller.roll(dice, diceToRerun);
-        console.print(dice.lastRolls());
+        notifier.notifyCurrentDice(dice);
     }
 }
