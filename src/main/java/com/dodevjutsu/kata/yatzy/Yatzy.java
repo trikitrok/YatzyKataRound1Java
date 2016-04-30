@@ -4,9 +4,9 @@ public class Yatzy {
     private final Console console;
     private final DiceRoller diceRoller;
 
-    public Yatzy(Console console, DieRoller dieRoller) {
+    public Yatzy(Console console, DiceRoller diceRoller) {
         this.console = console;
-        this.diceRoller = new DiceRoller(dieRoller);
+        this.diceRoller = diceRoller;
     }
 
     public void play() {
