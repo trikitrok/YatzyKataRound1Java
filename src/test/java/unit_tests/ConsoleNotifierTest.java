@@ -3,6 +3,7 @@ package unit_tests;
 import com.dodevjutsu.kata.yatzy.*;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -12,13 +13,19 @@ import static com.dodevjutsu.kata.yatzy.Side.*;
 import static com.dodevjutsu.kata.yatzy.Side.S1;
 
 public class ConsoleNotifierTest {
+    Mockery context;
+    Console console;
+    ConsoleNotifier consoleNotifier;
 
-    Mockery context = new Mockery();
+    @Before
+    public void setup() {
+        context = new Mockery();
+        console = context.mock(Console.class);
+        consoleNotifier = new ConsoleNotifier(console);
+    }
 
     @Test
     public void notifies_current_category() {
-        Console console = context.mock(Console.class);
-        ConsoleNotifier consoleNotifier = new ConsoleNotifier(console);
         context.checking(new Expectations() {{
             oneOf(console).print("Category: Ones");
         }});
@@ -30,8 +37,6 @@ public class ConsoleNotifierTest {
 
     @Test
     public void notifies_current_dice() {
-        Console console = context.mock(Console.class);
-        ConsoleNotifier consoleNotifier = new ConsoleNotifier(console);
         Dice dice = new Dice(Arrays.asList(S2, S4, S1, S6, S1));
         context.checking(new Expectations() {{
             oneOf(console).print("Dice: D1:2 D2:4 D3:1 D4:6 D5:1");
@@ -44,8 +49,6 @@ public class ConsoleNotifierTest {
 
     @Test
     public void asks_user_to_input_dice_to_reroll() {
-        Console console = context.mock(Console.class);
-        ConsoleNotifier consoleNotifier = new ConsoleNotifier(console);
         context.checking(new Expectations() {{
             oneOf(console).print("[1] Dice to re-run:");
         }});
