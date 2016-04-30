@@ -6,4 +6,6 @@ public interface Notifier {
     void notifyCurrentDice(Dice dice);
 
     void askForDiceToReroll();
+
+    void notifyUserInput(String input);
 }

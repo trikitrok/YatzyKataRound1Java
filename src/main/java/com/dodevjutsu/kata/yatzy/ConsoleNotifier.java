@@ -20,4 +20,9 @@ public class ConsoleNotifier implements Notifier {
     public void askForDiceToReroll() {
         console.print("[1] Dice to re-run:");
     }
+
+    @Override
+    public void notifyUserInput(String input) {
+        console.print(input);
+    }
 }
