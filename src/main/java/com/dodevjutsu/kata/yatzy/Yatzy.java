@@ -14,5 +14,6 @@ public class Yatzy {
         Dice dice = diceRoller.roll();
         console.print(dice.lastRolls());
         console.print("[1] Dice to re-run:");
+        console.print("D1 D2 D4");
     }
 }
