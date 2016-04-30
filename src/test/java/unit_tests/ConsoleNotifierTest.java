@@ -41,4 +41,17 @@ public class ConsoleNotifierTest {
 
         context.assertIsSatisfied();
     }
+
+    @Test
+    public void asks_user_to_input_dice_to_reroll() {
+        Console console = context.mock(Console.class);
+        ConsoleNotifier consoleNotifier = new ConsoleNotifier(console);
+        context.checking(new Expectations() {{
+            oneOf(console).print("[1] Dice to re-run:");
+        }});
+
+        consoleNotifier.askForDiceToReroll();
+
+        context.assertIsSatisfied();
+    }
 }

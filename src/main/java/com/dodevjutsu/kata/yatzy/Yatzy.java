@@ -21,7 +21,7 @@ public class Yatzy {
         notifier.notifyCategory(Ones);
         Dice dice = diceRoller.rollAll();
         notifier.notifyCurrentDice(dice);
-        console.print("[1] Dice to re-run:");
+        notifier.askForDiceToReroll();
 
         String userInputLine = userInput.read();
         console.print(userInputLine);

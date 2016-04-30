@@ -15,4 +15,9 @@ public class ConsoleNotifier implements Notifier {
     public void notifyCurrentDice(Dice dice) {
         console.print(dice.lastRolls());
     }
+
+    @Override
+    public void askForDiceToReroll() {
+        console.print("[1] Dice to re-run:");
+    }
 }
