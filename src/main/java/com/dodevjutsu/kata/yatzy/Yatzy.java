@@ -12,9 +12,10 @@ public class Yatzy {
     public void play() {
         console.print("Category: Ones");
 
-        for(int i =0; i<5; i++) {
-            dieRoller.roll();
+        String diceLine = "Dice: ";
+        for (int i = 0; i < 5; i++) {
+            diceLine += "D" + (i + 1) + ":" + dieRoller.roll().toString() + " ";
         }
-        console.print("Dice: D1:2 D2:4 D3:1 D4:6 D5:1");
+        console.print(diceLine.trim());
     }
 }

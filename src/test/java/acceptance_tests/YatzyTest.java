@@ -23,11 +23,11 @@ public class YatzyTest {
         context.checking(new Expectations() {{
             exactly(5).of(dieRoller).roll();
             will(onConsecutiveCalls(
-                returnValue(D2),
-                returnValue(D4),
-                returnValue(D1),
-                returnValue(D6),
-                returnValue(D1)));
+                returnValue(S2),
+                returnValue(S4),
+                returnValue(S1),
+                returnValue(S6),
+                returnValue(S1)));
             oneOf(console).print("Category: Ones");
             oneOf(console).print("Dice: D1:2 D2:4 D3:1 D4:6 D5:1");
         }});
