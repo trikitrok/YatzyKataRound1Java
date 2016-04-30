@@ -13,5 +13,6 @@ public class Yatzy {
         console.print("Category: Ones");
         Dice dice = diceRoller.roll();
         console.print(dice.lastRolls());
+        console.print("[1] Dice to re-run:");
     }
 }
