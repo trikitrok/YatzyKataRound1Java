@@ -5,12 +5,12 @@ import java.util.List;
 import static com.dodevjutsu.kata.yatzy.Category.Ones;
 
 public class Yatzy {
-    private final Console console;
+    private final InputReader inputReader;
     private final DiceRoller diceRoller;
     private final Notifier notifier;
 
-    public Yatzy(Console console, DieRoller dieRoller, Notifier notifier) {
-        this.console = console;
+    public Yatzy(DieRoller dieRoller, Notifier notifier, InputReader inputReader) {
+        this.inputReader = inputReader;
         this.diceRoller = new DiceRoller(dieRoller);
         this.notifier = notifier;
     }
@@ -21,10 +21,7 @@ public class Yatzy {
         notifier.notifyCurrentDice(dice);
         notifier.askForDiceToReroll();
 
-        String line = console.readLine();
-        console.print(line);
-
-        List<Integer> diceToRerun = new InputLine(line).extractDiceIndexes();
+        List<Integer> diceToRerun = inputReader.diceToReroll();
         dice = diceRoller.roll(dice, diceToRerun);
         notifier.notifyCurrentDice(dice);
     }
