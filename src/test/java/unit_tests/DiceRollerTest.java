@@ -23,8 +23,7 @@ public class DiceRollerTest {
         DieRoller dieRoller = context.mock(DieRoller.class);
         DiceRoller diceRoller = new DiceRoller(dieRoller);
         List<Integer> diceToRerollIndexes = Arrays.asList(0, 2, 4);
-        List<Side> sides = Arrays.asList(S1, S1, S1, S1, S1);
-        Dice dice = new Dice(sides);
+        Dice dice = new Dice(Arrays.asList(S1, S1, S1, S1, S1));
         context.checking(new Expectations() {{
             exactly(3).of(dieRoller).roll();
             will(onConsecutiveCalls(
