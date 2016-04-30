@@ -11,7 +11,7 @@ public class InputLine {
         this.content = content;
     }
 
-    public List<Integer> extractDiceNumbers() {
+    public List<Integer> extractDiceIndexes() {
         String[] tokens = content.split(" ");
         return Stream.of(tokens)
             .map(this::toDiceNumber)
