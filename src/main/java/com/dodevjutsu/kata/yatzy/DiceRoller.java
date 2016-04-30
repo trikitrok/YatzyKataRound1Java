@@ -1,6 +1,8 @@
 package com.dodevjutsu.kata.yatzy;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class DiceRoller {
@@ -16,6 +18,15 @@ public class DiceRoller {
             sides.add(dieRoller.roll());
         }
         return new Dice(sides);
+    }
+
+    public Dice roll(Dice dice, List<Integer> diceToRerollIndexes) {
+        Side[] sides = dice.sides().toArray(new Side[0]);
+
+        for(int i = 0; i<diceToRerollIndexes.size(); i++) {
+            sides[diceToRerollIndexes.get(i)] = dieRoller.roll();
+        }
+        return new Dice(Arrays.asList(sides));
     }
 }
 
