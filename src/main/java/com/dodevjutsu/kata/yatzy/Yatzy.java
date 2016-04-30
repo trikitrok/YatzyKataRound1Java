@@ -17,11 +17,17 @@ public class Yatzy {
 
     public void play() {
         notifier.notifyCategory(Ones);
+
         Dice dice = diceRoller.rollAll();
         notifier.notifyCurrentDice(dice);
-        notifier.askForDiceToReroll();
 
+        notifier.askForDiceToReroll(1);
         List<Integer> diceToRerun = inputReader.diceToReroll();
+        dice = diceRoller.roll(dice, diceToRerun);
+        notifier.notifyCurrentDice(dice);
+
+        notifier.askForDiceToReroll(2);
+        diceToRerun = inputReader.diceToReroll();
         dice = diceRoller.roll(dice, diceToRerun);
         notifier.notifyCurrentDice(dice);
     }

@@ -53,7 +53,7 @@ public class ConsoleNotifierTest {
             oneOf(console).print("[1] Dice to re-run:");
         }});
 
-        consoleNotifier.askForDiceToReroll();
+        consoleNotifier.askForDiceToReroll(1);
 
         context.assertIsSatisfied();
     }

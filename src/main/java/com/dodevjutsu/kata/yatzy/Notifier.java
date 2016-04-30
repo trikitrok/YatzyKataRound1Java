@@ -5,7 +5,7 @@ public interface Notifier {
 
     void notifyCurrentDice(Dice dice);
 
-    void askForDiceToReroll();
+    void askForDiceToReroll(int rerollNumber);
 
     void notifyUserInput(String input);
 }
