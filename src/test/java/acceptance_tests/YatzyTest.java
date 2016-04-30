@@ -1,9 +1,6 @@
 package acceptance_tests;
 
-import com.dodevjutsu.kata.yatzy.Console;
-import com.dodevjutsu.kata.yatzy.DiceRoller;
-import com.dodevjutsu.kata.yatzy.DieRoller;
-import com.dodevjutsu.kata.yatzy.Yatzy;
+import com.dodevjutsu.kata.yatzy.*;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.Test;
@@ -18,10 +15,13 @@ public class YatzyTest {
     public void game_console_output() {
         Console console = context.mock(Console.class);
         DieRoller dieRoller = context.mock(DieRoller.class);
+        UserInput userInput = context.mock(UserInput.class);
 
-        Yatzy yatzy = new Yatzy(console, new DiceRoller(dieRoller));
+        Yatzy yatzy = new Yatzy(console, userInput, new DiceRoller(dieRoller));
 
         context.checking(new Expectations() {{
+            oneOf(userInput).read();
+            will(onConsecutiveCalls(returnValue("D1 D2 D4")));
             exactly(5).of(dieRoller).roll();
             will(onConsecutiveCalls(
                 returnValue(S2),
