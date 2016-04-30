@@ -10,4 +10,9 @@ public class ConsoleNotifier implements Notifier {
     public void notifyCategory(Category category) {
         console.print(category.toString());
     }
+
+    @Override
+    public void notifyCurrentDice(Dice dice) {
+        console.print(dice.lastRolls());
+    }
 }
