@@ -25,9 +25,6 @@ public class Yatzy {
     }
 
     private Dice doRerun(Dice dice, int rerunNumber) {
-        notifier.askForDiceToRerun(rerunNumber);
-        dice = diceRoller.roll(dice, inputReader.diceToRerun());
-        notifier.notifyCurrentDice(dice);
-        return dice;
+        return new DiceRerun(rerunNumber, diceRoller, notifier, inputReader).doRerun(dice);
     }
 }
