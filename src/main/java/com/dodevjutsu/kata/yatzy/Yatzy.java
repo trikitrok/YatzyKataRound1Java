@@ -13,6 +13,7 @@ public class Yatzy {
 
     public void play() {
         console.print("Category: Ones");
+        dice.roll();
         console.print(dice.lastRolls());
     }
 }
