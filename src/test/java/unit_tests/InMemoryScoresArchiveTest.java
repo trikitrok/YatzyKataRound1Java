@@ -1,7 +1,7 @@
 package unit_tests;
 
-import com.dodevjutsu.kata.yatzy.infrastructure.scores_archives.InMemoryScoresArchive;
 import com.dodevjutsu.kata.yatzy.core.ScoresArchive;
+import com.dodevjutsu.kata.yatzy.infrastructure.scores_archives.InMemoryScoresArchive;
 import org.junit.Test;
 
 import static com.dodevjutsu.kata.yatzy.core.Category.*;

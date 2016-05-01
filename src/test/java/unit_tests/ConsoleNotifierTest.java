@@ -12,7 +12,6 @@ import java.util.Arrays;
 
 import static com.dodevjutsu.kata.yatzy.core.Category.*;
 import static com.dodevjutsu.kata.yatzy.core.Side.*;
-import static com.dodevjutsu.kata.yatzy.core.Side.S1;
 
 public class ConsoleNotifierTest {
     Mockery context;
@@ -84,10 +83,14 @@ public class ConsoleNotifierTest {
         ScoresArchive scoresArchive = context.mock(ScoresArchive.class);
 
         context.checking(new Expectations() {{
-            oneOf(scoresArchive).retrieve(Ones); will(returnValue(2));
-            oneOf(scoresArchive).retrieve(Twos); will(returnValue(4));
-            oneOf(scoresArchive).retrieve(Threes); will(returnValue(3));
-            oneOf(scoresArchive).totalScore(); will(returnValue(9));
+            oneOf(scoresArchive).retrieve(Ones);
+            will(returnValue(2));
+            oneOf(scoresArchive).retrieve(Twos);
+            will(returnValue(4));
+            oneOf(scoresArchive).retrieve(Threes);
+            will(returnValue(3));
+            oneOf(scoresArchive).totalScore();
+            will(returnValue(9));
             oneOf(console).print("Yahtzee score");
             oneOf(console).print("Ones: 2");
             oneOf(console).print("Twos: 4");
@@ -95,6 +98,6 @@ public class ConsoleNotifierTest {
             oneOf(console).print("Final score: 9");
         }});
 
-        consoleNotifier.notifyGameSummary(new GameSummary(Arrays.asList(Ones,Twos, Threes), scoresArchive));
+        consoleNotifier.notifyGameSummary(new GameSummary(Arrays.asList(Ones, Twos, Threes), scoresArchive));
     }
 }

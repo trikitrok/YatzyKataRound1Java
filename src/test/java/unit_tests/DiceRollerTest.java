@@ -10,7 +10,8 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.dodevjutsu.kata.yatzy.core.Side.*;
+import static com.dodevjutsu.kata.yatzy.core.Side.S1;
+import static com.dodevjutsu.kata.yatzy.core.Side.S2;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 

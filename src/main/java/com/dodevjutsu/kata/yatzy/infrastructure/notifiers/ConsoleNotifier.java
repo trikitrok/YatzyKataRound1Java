@@ -38,10 +38,9 @@ public class ConsoleNotifier implements Notifier {
 
     @Override
     public void notifyGameSummary(GameSummary gameSummary) {
-        //console.print("Yahtzee score");
         console.print(gameSummary.header());
         List<String> categoriesScores = gameSummary.categoriesScoresAsStrings();
-        for(String categoryScore: categoriesScores) {
+        for (String categoryScore : categoriesScores) {
             console.print(categoryScore);
         }
         console.print(gameSummary.finalScore());

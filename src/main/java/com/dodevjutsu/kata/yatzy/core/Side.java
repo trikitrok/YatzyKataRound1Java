@@ -13,6 +13,7 @@ public enum Side {
     }
 
     private static final Map<Integer, Side> sidesByNumber;
+
     static {
         Map<Integer, Side> aMap = new HashMap<>();
         aMap.put(1, S1);
