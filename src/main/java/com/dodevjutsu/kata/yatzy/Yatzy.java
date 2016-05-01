@@ -1,5 +1,8 @@
 package com.dodevjutsu.kata.yatzy;
 
+import java.util.Arrays;
+import java.util.List;
+
 import static com.dodevjutsu.kata.yatzy.Category.*;
 import static com.dodevjutsu.kata.yatzy.Category.Ones;
 
@@ -9,6 +12,7 @@ public class Yatzy {
     private final DiceRoller diceRoller;
     private final Notifier notifier;
     private final DiceReruns diceReruns;
+    private List<Category> categories = Arrays.asList(Ones, Twos);
 
     public Yatzy(DieRoller dieRoller, Notifier notifier, InputReader inputReader) {
         this.inputReader = inputReader;
@@ -18,22 +22,13 @@ public class Yatzy {
     }
 
     public void play() {
-        notifier.notifyCategory(Ones);
-
-        Dice dice = diceRoller.rollAll();
-        notifier.notifyCurrentDice(dice);
-
-        dice = diceReruns.doReRuns(dice);
-
-        notifier.notifyCategoryScore(Ones, Ones.scoreFor(dice));
-
-        notifier.notifyCategory(Twos);
-
-        dice = diceRoller.rollAll();
-        notifier.notifyCurrentDice(dice);
-
-        dice = diceReruns.doReRuns(dice);
-
-        notifier.notifyCategoryScore(Twos, Twos.scoreFor(dice));
+        for(Category category : categories) {
+            notifier.notifyCategory(category);
+            Dice dice = diceRoller.rollAll();
+            notifier.notifyCurrentDice(dice);
+            dice = diceReruns.doReRuns(dice);
+            notifier.notifyCategoryScore(category, category.scoreFor(dice));
+        }
     }
+
 }
