@@ -46,12 +46,8 @@ public class Dice {
     }
 
     public int countWithSide(Side side) {
-        int num = 0;
-        for(Side eachSide : sides) {
-            if(eachSide.equals(side)) {
-                num++;
-            }
-        }
-        return num;
+        return (int) sides.stream()
+            .filter(s -> s.equals(side))
+            .count();
     }
 }
