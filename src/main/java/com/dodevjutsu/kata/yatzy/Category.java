@@ -7,4 +7,8 @@ public enum Category {
     public String toString() {
         return "Category: " + this.name();
     }
+
+    public int scoreFor(Dice dice) {
+        return dice.countDiceWith(Side.S1);
+    }
 }
