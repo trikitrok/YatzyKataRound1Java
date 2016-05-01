@@ -14,6 +14,12 @@ public enum Category {
         public int scoreFor(Dice dice) {
             return dice.countWithSide(S2);
         }
+    },
+    Threes {
+        @Override
+        public int scoreFor(Dice dice) {
+            return dice.countWithSide(S3);
+        }
     };
 
     @Override

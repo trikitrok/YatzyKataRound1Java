@@ -29,7 +29,9 @@ public class YatzyTest {
                 returnValue("D1 D2 D4"),
                 returnValue("D2 D4"),
                 returnValue("D1 D2 D3"),
-                returnValue("D2 D3")
+                returnValue("D2 D3"),
+                returnValue("D1 D4 D5"),
+                returnValue("D1 D4 D5")
             ));
             atLeast(1).of(dieRoller).roll();
             will(onConsecutiveCalls(
@@ -38,7 +40,10 @@ public class YatzyTest {
                 returnValue(S1), returnValue(S5),
                 returnValue(S3), returnValue(S5), returnValue(S6), returnValue(S2), returnValue(S2),
                 returnValue(S2), returnValue(S4), returnValue(S3),
-                returnValue(S5), returnValue(S2)
+                returnValue(S5), returnValue(S2),
+                returnValue(S4), returnValue(S3), returnValue(S3), returnValue(S5), returnValue(S6),
+                returnValue(S6), returnValue(S2), returnValue(S1),
+                returnValue(S3), returnValue(S5), returnValue(S4)
             ));
             oneOf(console).print("Category: Ones");
             oneOf(console).print("Dice: D1:2 D2:4 D3:1 D4:6 D5:1");
@@ -59,6 +64,16 @@ public class YatzyTest {
             oneOf(console).print("D2 D3");
             oneOf(console).print("Dice: D1:2 D2:5 D3:2 D4:2 D5:2");
             oneOf(console).print("Category Twos score: 4");
+
+            oneOf(console).print("Category: Threes");
+            oneOf(console).print("Dice: D1:4 D2:3 D3:3 D4:5 D5:6");
+            oneOf(console).print("[1] Dice to re-run:");
+            oneOf(console).print("D1 D4 D5");
+            oneOf(console).print("Dice: D1:6 D2:3 D3:3 D4:2 D5:1");
+            oneOf(console).print("[2] Dice to re-run:");
+            oneOf(console).print("D1 D4 D5");
+            oneOf(console).print("Dice: D1:3 D2:3 D3:3 D4:5 D5:4");
+            oneOf(console).print("Category Threes score: 3");
         }});
 
         yatzy.play();

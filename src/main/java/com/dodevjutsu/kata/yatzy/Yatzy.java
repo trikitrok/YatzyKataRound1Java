@@ -11,7 +11,7 @@ public class Yatzy {
     private final DiceRoller diceRoller;
     private final Notifier notifier;
     private final DiceReruns diceReruns;
-    private List<Category> categories = Arrays.asList(Ones, Twos);
+    private List<Category> categories = Arrays.asList(Ones, Twos, Threes);
 
     public Yatzy(DieRoller dieRoller, Notifier notifier, InputReader inputReader) {
         this.notifier = notifier;
@@ -27,6 +27,8 @@ public class Yatzy {
             dice = diceReruns.doReRuns(dice);
             notifier.notifyCategoryScore(category, category.scoreFor(dice));
         }
+
+
     }
 
 }
