@@ -20,7 +20,8 @@ public class YatzyTest {
         Yatzy yatzy = new Yatzy(
             dieRoller,
             consoleNotifier,
-            new ConsoleInputReader(console, consoleNotifier)
+            new ConsoleInputReader(console, consoleNotifier),
+            new InMemoryScoresArchive()
         );
 
         context.checking(new Expectations() {{

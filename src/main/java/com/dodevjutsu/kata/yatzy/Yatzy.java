@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import static com.dodevjutsu.kata.yatzy.Category.*;
-import static com.dodevjutsu.kata.yatzy.Category.Ones;
 
 public class Yatzy {
     private static final int NUMBER_OF_RERUNS = 2;
@@ -14,11 +13,11 @@ public class Yatzy {
     private final ScoresArchive scoresArchive;
     private List<Category> categories = Arrays.asList(Ones, Twos, Threes);
 
-    public Yatzy(DieRoller dieRoller, Notifier notifier, InputReader inputReader) {
+    public Yatzy(DieRoller dieRoller, Notifier notifier, InputReader inputReader, ScoresArchive scoresArchive) {
         this.notifier = notifier;
         this.diceRoller = new DiceRoller(dieRoller);
         this.diceReruns = new DiceReruns(NUMBER_OF_RERUNS, diceRoller, notifier, inputReader);
-        this.scoresArchive = new InMemoryScoresArchive();
+        this.scoresArchive = scoresArchive;
     }
 
     public void play() {
