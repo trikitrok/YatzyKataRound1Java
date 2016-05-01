@@ -45,7 +45,7 @@ public class Dice {
         return sides != null ? sides.hashCode() : 0;
     }
 
-    public int countDiceWith(Side side) {
+    public int countWithSide(Side side) {
         int num = 0;
         for(Side eachSide : sides) {
             if(eachSide.equals(side)) {

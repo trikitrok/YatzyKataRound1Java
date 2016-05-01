@@ -1,14 +1,25 @@
 package com.dodevjutsu.kata.yatzy;
 
+import static com.dodevjutsu.kata.yatzy.Side.*;
+
 public enum Category {
-    Ones, Twos;
+    Ones {
+        @Override
+        public int scoreFor(Dice dice) {
+            return dice.countWithSide(S1);
+        }
+    },
+    Twos {
+        @Override
+        public int scoreFor(Dice dice) {
+            return dice.countWithSide(S2);
+        }
+    };
 
     @Override
     public String toString() {
         return "Category: " + this.name();
     }
 
-    public int scoreFor(Dice dice) {
-        return dice.countDiceWith(Side.S1);
-    }
+    abstract public int scoreFor(Dice dice);
 }
