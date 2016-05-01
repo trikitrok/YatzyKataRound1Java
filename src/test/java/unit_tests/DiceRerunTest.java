@@ -41,7 +41,7 @@ public class DiceRerunTest {
             ignoring(dieRoller);
             allowing(notifier).notifyCurrentDice(with(any(Dice.class)));
 
-            oneOf(notifier).askForDiceToRerun(rerun_number);
+            oneOf(notifier).askForDiceToRerun(diceRerun);
         }});
 
         diceRerun.doRerun(initialDice);
@@ -58,7 +58,7 @@ public class DiceRerunTest {
             ));
             atLeast(1).of(inputReader).diceToRerun();
             will(returnValue(Arrays.asList(1, 4)));
-            allowing(notifier).askForDiceToRerun(with(any(Integer.class)));
+            allowing(notifier).askForDiceToRerun(diceRerun);
 
             oneOf(notifier).notifyCurrentDice(new Dice(Arrays.asList(S1, S4, S1, S1, S5)));
         }});

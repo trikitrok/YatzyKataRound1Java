@@ -17,11 +17,6 @@ public class ConsoleNotifier implements Notifier {
     }
 
     @Override
-    public void askForDiceToRerun(int rerunNumber) {
-        console.print("[" + rerunNumber + "] Dice to re-run:");
-    }
-
-    @Override
     public void notifyUserInput(String input) {
         console.print(input);
     }
@@ -29,5 +24,10 @@ public class ConsoleNotifier implements Notifier {
     @Override
     public void notifyCategoryScore(Category category, int score) {
         console.print("Category Ones score: 4");
+    }
+
+    @Override
+    public void askForDiceToRerun(DiceRerun diceRerun) {
+        console.print(diceRerun.requestPhrase());
     }
 }
