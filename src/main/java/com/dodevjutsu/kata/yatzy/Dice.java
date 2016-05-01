@@ -2,6 +2,7 @@ package com.dodevjutsu.kata.yatzy;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class Dice {
     public static final int NUMBER = 5;
@@ -12,13 +13,10 @@ public class Dice {
     }
 
     String lastRolls() {
-        String diceLine = "Dice: ";
-        for (int i = 0; i < values.size(); i++) {
-            diceLine += "D" + (i + 1) + ":" + values.get(i) + " ";
-        }
-
-
-        return diceLine.trim();
+        return IntStream.range(0, values.size())
+            .mapToObj(i -> String.format("D%d:%s ", i + 1, values.get(i)))
+            .reduce("Dice: ", (a, b) -> a + b)
+            .trim();
     }
 
     public List<Side> values() {
