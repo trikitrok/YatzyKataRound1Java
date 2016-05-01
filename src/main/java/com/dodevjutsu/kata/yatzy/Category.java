@@ -28,4 +28,8 @@ public enum Category {
     }
 
     abstract public int scoreFor(Dice dice);
+
+    public String scoreAsString(int score) {
+        return "Category " + this.name() + " score: " + score;
+    }
 }
