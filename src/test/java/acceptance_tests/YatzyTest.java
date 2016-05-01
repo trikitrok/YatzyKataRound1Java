@@ -12,7 +12,7 @@ public class YatzyTest {
     Mockery context = new Mockery();
 
     @Test
-    public void game_console_output() {
+    public void playing_yatzi_on_the_console() {
         Console console = context.mock(Console.class);
         DieRoller dieRoller = context.mock(DieRoller.class);
         ConsoleNotifier consoleNotifier = new ConsoleNotifier(console);
