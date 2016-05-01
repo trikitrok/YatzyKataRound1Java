@@ -1,4 +1,4 @@
-package com.dodevjutsu.kata.yatzy;
+package com.dodevjutsu.kata.yatzy.infrastructure.input_readers;
 
 import java.util.List;
 import java.util.stream.Collectors;

@@ -1,6 +1,6 @@
 package unit_tests;
 
-import com.dodevjutsu.kata.yatzy.InputLine;
+import com.dodevjutsu.kata.yatzy.infrastructure.input_readers.InputLine;
 import org.junit.Test;
 
 import java.util.Arrays;

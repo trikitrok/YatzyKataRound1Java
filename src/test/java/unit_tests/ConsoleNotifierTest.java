@@ -1,6 +1,8 @@
 package unit_tests;
 
-import com.dodevjutsu.kata.yatzy.*;
+import com.dodevjutsu.kata.yatzy.core.*;
+import com.dodevjutsu.kata.yatzy.infrastructure.Console;
+import com.dodevjutsu.kata.yatzy.infrastructure.notifiers.ConsoleNotifier;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.Before;
@@ -8,9 +10,9 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
-import static com.dodevjutsu.kata.yatzy.Category.*;
-import static com.dodevjutsu.kata.yatzy.Side.*;
-import static com.dodevjutsu.kata.yatzy.Side.S1;
+import static com.dodevjutsu.kata.yatzy.core.Category.*;
+import static com.dodevjutsu.kata.yatzy.core.Side.*;
+import static com.dodevjutsu.kata.yatzy.core.Side.S1;
 
 public class ConsoleNotifierTest {
     Mockery context;

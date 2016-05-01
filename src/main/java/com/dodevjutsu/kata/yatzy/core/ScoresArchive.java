@@ -1,4 +1,4 @@
-package com.dodevjutsu.kata.yatzy;
+package com.dodevjutsu.kata.yatzy.core;
 
 public interface ScoresArchive {
     void register(Category category, int score);

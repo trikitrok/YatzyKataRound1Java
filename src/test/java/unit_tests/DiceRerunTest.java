@@ -1,6 +1,7 @@
 package unit_tests;
 
-import com.dodevjutsu.kata.yatzy.*;
+import com.dodevjutsu.kata.yatzy.core.*;
+import com.dodevjutsu.kata.yatzy.infrastructure.DieRoller;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.Before;
@@ -8,7 +9,7 @@ import org.junit.Test;
 
 import java.util.Arrays;
 
-import static com.dodevjutsu.kata.yatzy.Side.*;
+import static com.dodevjutsu.kata.yatzy.core.Side.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 

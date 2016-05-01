@@ -1,9 +1,12 @@
-package com.dodevjutsu.kata.yatzy;
+package com.dodevjutsu.kata.yatzy.application;
+
+import com.dodevjutsu.kata.yatzy.core.*;
+import com.dodevjutsu.kata.yatzy.infrastructure.DieRoller;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static com.dodevjutsu.kata.yatzy.Category.*;
+import static com.dodevjutsu.kata.yatzy.core.Category.*;
 
 public class Yatzy {
     private static final int NUMBER_OF_RERUNS = 2;

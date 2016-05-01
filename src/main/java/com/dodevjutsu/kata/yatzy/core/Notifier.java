@@ -1,6 +1,4 @@
-package com.dodevjutsu.kata.yatzy;
-
-import java.util.List;
+package com.dodevjutsu.kata.yatzy.core;
 
 public interface Notifier {
     void notifyCategory(Category category);

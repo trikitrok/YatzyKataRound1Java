@@ -1,4 +1,7 @@
-package com.dodevjutsu.kata.yatzy;
+package com.dodevjutsu.kata.yatzy.infrastructure.scores_archives;
+
+import com.dodevjutsu.kata.yatzy.core.Category;
+import com.dodevjutsu.kata.yatzy.core.ScoresArchive;
 
 import java.util.HashMap;
 import java.util.Map;

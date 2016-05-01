@@ -1,4 +1,4 @@
-package com.dodevjutsu.kata.yatzy;
+package com.dodevjutsu.kata.yatzy.core;
 
 import java.util.ArrayList;
 import java.util.List;

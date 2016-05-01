@@ -1,8 +1,8 @@
 package unit_tests;
 
-import com.dodevjutsu.kata.yatzy.Console;
-import com.dodevjutsu.kata.yatzy.ConsoleInputReader;
-import com.dodevjutsu.kata.yatzy.Notifier;
+import com.dodevjutsu.kata.yatzy.infrastructure.Console;
+import com.dodevjutsu.kata.yatzy.infrastructure.input_readers.ConsoleInputReader;
+import com.dodevjutsu.kata.yatzy.core.Notifier;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.Test;

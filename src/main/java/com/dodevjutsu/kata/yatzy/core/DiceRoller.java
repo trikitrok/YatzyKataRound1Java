@@ -1,4 +1,6 @@
-package com.dodevjutsu.kata.yatzy;
+package com.dodevjutsu.kata.yatzy.core;
+
+import com.dodevjutsu.kata.yatzy.infrastructure.DieRoller;
 
 import java.util.ArrayList;
 import java.util.Arrays;

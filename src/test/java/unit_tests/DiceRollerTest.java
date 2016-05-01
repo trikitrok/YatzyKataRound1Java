@@ -1,9 +1,8 @@
 package unit_tests;
 
-import com.dodevjutsu.kata.yatzy.Dice;
-import com.dodevjutsu.kata.yatzy.DiceRoller;
-import com.dodevjutsu.kata.yatzy.DieRoller;
-import com.dodevjutsu.kata.yatzy.Side;
+import com.dodevjutsu.kata.yatzy.core.Dice;
+import com.dodevjutsu.kata.yatzy.core.DiceRoller;
+import com.dodevjutsu.kata.yatzy.infrastructure.DieRoller;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.Test;
@@ -11,7 +10,7 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.dodevjutsu.kata.yatzy.Side.*;
+import static com.dodevjutsu.kata.yatzy.core.Side.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 

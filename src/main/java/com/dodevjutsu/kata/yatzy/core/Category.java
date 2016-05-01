@@ -1,24 +1,22 @@
-package com.dodevjutsu.kata.yatzy;
-
-import static com.dodevjutsu.kata.yatzy.Side.*;
+package com.dodevjutsu.kata.yatzy.core;
 
 public enum Category {
     Ones {
         @Override
         public int scoreFor(Dice dice) {
-            return dice.countWithSide(S1);
+            return dice.countWithSide(Side.S1);
         }
     },
     Twos {
         @Override
         public int scoreFor(Dice dice) {
-            return dice.countWithSide(S2);
+            return dice.countWithSide(Side.S2);
         }
     },
     Threes {
         @Override
         public int scoreFor(Dice dice) {
-            return dice.countWithSide(S3);
+            return dice.countWithSide(Side.S3);
         }
     };
 

@@ -1,4 +1,4 @@
-package com.dodevjutsu.kata.yatzy;
+package com.dodevjutsu.kata.yatzy.core;
 
 import java.util.Collections;
 import java.util.List;
@@ -12,7 +12,7 @@ public class Dice {
         this.values = values;
     }
 
-    String lastRolls() {
+    public String lastRolls() {
         return IntStream.range(0, values.size())
             .mapToObj(i -> String.format("D%d:%s ", i + 1, values.get(i)))
             .reduce("Dice: ", (a, b) -> a + b)

@@ -1,13 +1,13 @@
 package unit_tests;
 
-import com.dodevjutsu.kata.yatzy.Dice;
+import com.dodevjutsu.kata.yatzy.core.Dice;
 import org.junit.Test;
 
 import java.util.Arrays;
 
-import static com.dodevjutsu.kata.yatzy.Category.Ones;
-import static com.dodevjutsu.kata.yatzy.Category.Twos;
-import static com.dodevjutsu.kata.yatzy.Side.*;
+import static com.dodevjutsu.kata.yatzy.core.Category.Ones;
+import static com.dodevjutsu.kata.yatzy.core.Category.Twos;
+import static com.dodevjutsu.kata.yatzy.core.Side.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 

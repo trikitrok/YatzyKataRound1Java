@@ -1,10 +1,10 @@
 package unit_tests;
 
-import com.dodevjutsu.kata.yatzy.InMemoryScoresArchive;
-import com.dodevjutsu.kata.yatzy.ScoresArchive;
+import com.dodevjutsu.kata.yatzy.infrastructure.scores_archives.InMemoryScoresArchive;
+import com.dodevjutsu.kata.yatzy.core.ScoresArchive;
 import org.junit.Test;
 
-import static com.dodevjutsu.kata.yatzy.Category.*;
+import static com.dodevjutsu.kata.yatzy.core.Category.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 

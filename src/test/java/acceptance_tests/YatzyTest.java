@@ -1,11 +1,16 @@
 package acceptance_tests;
 
-import com.dodevjutsu.kata.yatzy.*;
+import com.dodevjutsu.kata.yatzy.application.Yatzy;
+import com.dodevjutsu.kata.yatzy.infrastructure.Console;
+import com.dodevjutsu.kata.yatzy.infrastructure.DieRoller;
+import com.dodevjutsu.kata.yatzy.infrastructure.input_readers.ConsoleInputReader;
+import com.dodevjutsu.kata.yatzy.infrastructure.notifiers.ConsoleNotifier;
+import com.dodevjutsu.kata.yatzy.infrastructure.scores_archives.InMemoryScoresArchive;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.Test;
 
-import static com.dodevjutsu.kata.yatzy.Side.*;
+import static com.dodevjutsu.kata.yatzy.core.Side.*;
 
 public class YatzyTest {
 

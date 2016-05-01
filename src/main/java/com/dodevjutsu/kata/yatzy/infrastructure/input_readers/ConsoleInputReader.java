@@ -1,4 +1,8 @@
-package com.dodevjutsu.kata.yatzy;
+package com.dodevjutsu.kata.yatzy.infrastructure.input_readers;
+
+import com.dodevjutsu.kata.yatzy.infrastructure.Console;
+import com.dodevjutsu.kata.yatzy.core.InputReader;
+import com.dodevjutsu.kata.yatzy.core.Notifier;
 
 import java.util.List;
 

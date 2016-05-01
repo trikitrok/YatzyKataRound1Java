@@ -1,4 +1,4 @@
-package com.dodevjutsu.kata.yatzy;
+package com.dodevjutsu.kata.yatzy.core;
 
 public class DiceRerun {
     private final int rerunNumber;

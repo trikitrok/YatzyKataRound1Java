@@ -1,4 +1,7 @@
-package com.dodevjutsu.kata.yatzy;
+package com.dodevjutsu.kata.yatzy.infrastructure.notifiers;
+
+import com.dodevjutsu.kata.yatzy.core.*;
+import com.dodevjutsu.kata.yatzy.infrastructure.Console;
 
 import java.util.List;
 
