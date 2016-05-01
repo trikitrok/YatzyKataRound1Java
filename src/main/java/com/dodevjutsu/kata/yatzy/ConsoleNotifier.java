@@ -34,11 +34,13 @@ public class ConsoleNotifier implements Notifier {
     }
 
     @Override
-    public void notifyGameSummary(List<Category> categories, ScoresArchive scoresArchive) {
-        console.print("Yahtzee score");
-        for(Category category: categories) {
-            console.print(category.name() + ": " + scoresArchive.retrieve(category));
+    public void notifyGameSummary(GameSummary gameSummary) {
+        //console.print("Yahtzee score");
+        console.print(gameSummary.header());
+        List<String> categoriesScores = gameSummary.categoriesScoresAsStrings();
+        for(String categoryScore: categoriesScores) {
+            console.print(categoryScore);
         }
-        console.print("Final score: " + scoresArchive.totalScore());
+        console.print(gameSummary.finalScore());
     }
 }

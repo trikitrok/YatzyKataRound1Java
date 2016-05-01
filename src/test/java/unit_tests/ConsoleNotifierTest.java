@@ -93,6 +93,6 @@ public class ConsoleNotifierTest {
             oneOf(console).print("Final score: 9");
         }});
 
-        consoleNotifier.notifyGameSummary(Arrays.asList(Ones,Twos, Threes), scoresArchive);
+        consoleNotifier.notifyGameSummary(new GameSummary(Arrays.asList(Ones,Twos, Threes), scoresArchive));
     }
 }

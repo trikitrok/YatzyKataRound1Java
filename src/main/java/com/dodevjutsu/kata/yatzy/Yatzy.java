@@ -26,7 +26,7 @@ public class Yatzy {
     }
 
     private void summarizeGame() {
-        notifier.notifyGameSummary(categories, scoresArchive);
+        notifier.notifyGameSummary(new GameSummary(categories, scoresArchive));
     }
 
     private void playCategories() {

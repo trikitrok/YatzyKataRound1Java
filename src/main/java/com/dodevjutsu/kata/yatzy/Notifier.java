@@ -13,5 +13,5 @@ public interface Notifier {
 
     void askForDiceToRerun(DiceRerun diceRerun);
 
-    void notifyGameSummary(List<Category> categories, ScoresArchive scoresArchive);
+    void notifyGameSummary(GameSummary gameSummary);
 }
