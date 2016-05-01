@@ -11,12 +11,14 @@ public class Yatzy {
     private final DiceRoller diceRoller;
     private final Notifier notifier;
     private final DiceReruns diceReruns;
+    private final ScoresArchive scoresArchive;
     private List<Category> categories = Arrays.asList(Ones, Twos, Threes);
 
     public Yatzy(DieRoller dieRoller, Notifier notifier, InputReader inputReader) {
         this.notifier = notifier;
         this.diceRoller = new DiceRoller(dieRoller);
         this.diceReruns = new DiceReruns(NUMBER_OF_RERUNS, diceRoller, notifier, inputReader);
+        this.scoresArchive = new InMemoryScoresArchive();
     }
 
     public void play() {
@@ -25,10 +27,12 @@ public class Yatzy {
             Dice dice = diceRoller.rollAll();
             notifier.notifyCurrentDice(dice);
             dice = diceReruns.doReRuns(dice);
-            notifier.notifyCategoryScore(category, category.scoreFor(dice));
+            int score = category.scoreFor(dice);
+            notifier.notifyCategoryScore(category, score);
+            scoresArchive.register(category, score);
         }
 
-
+        notifier.notifyGameSummary(categories, scoresArchive);
     }
 
 }

@@ -1,5 +1,7 @@
 package com.dodevjutsu.kata.yatzy;
 
+import java.util.List;
+
 public class ConsoleNotifier implements Notifier {
     private final Console console;
 
@@ -29,5 +31,14 @@ public class ConsoleNotifier implements Notifier {
     @Override
     public void askForDiceToRerun(DiceRerun diceRerun) {
         console.print(diceRerun.requestPhrase());
+    }
+
+    @Override
+    public void notifyGameSummary(List<Category> categories, ScoresArchive scoresArchive) {
+        console.print("Yahtzee score");
+        for(Category category: categories) {
+            console.print(category.name() + ": " + scoresArchive.retrieve(category));
+        }
+        console.print("Final score: " + scoresArchive.totalScore());
     }
 }

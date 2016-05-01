@@ -21,4 +21,15 @@ public class InMemoryScoresArchiveTest {
         assertThat(scoresArchive.retrieve(Twos), is(2));
         assertThat(scoresArchive.retrieve(Threes), is(3));
     }
+
+    @Test
+    public void computes_total_score() {
+        ScoresArchive scoresArchive = new InMemoryScoresArchive();
+
+        scoresArchive.register(Ones, 4);
+        scoresArchive.register(Twos, 5);
+        scoresArchive.register(Threes, 3);
+
+        assertThat(scoresArchive.totalScore(), is(12));
+    }
 }

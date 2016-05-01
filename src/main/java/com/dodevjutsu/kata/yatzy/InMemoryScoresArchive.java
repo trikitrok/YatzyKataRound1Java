@@ -15,4 +15,11 @@ public class InMemoryScoresArchive implements ScoresArchive {
     public int retrieve(Category category) {
         return scoresByCategory.get(category);
     }
+
+    @Override
+    public int totalScore() {
+        return scoresByCategory.values()
+            .stream()
+            .reduce(0, (a, b) -> a + b);
+    }
 }
