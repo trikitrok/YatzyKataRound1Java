@@ -58,7 +58,7 @@ public class YatzyTest {
             oneOf(console).print("[2] Dice to re-run:");
             oneOf(console).print("D2 D3");
             oneOf(console).print("Dice: D1:2 D2:5 D3:2 D4:2 D5:2");
-            oneOf(console).print("Category Twos score: 5");
+            oneOf(console).print("Category Twos score: 4");
         }});
 
         yatzy.play();

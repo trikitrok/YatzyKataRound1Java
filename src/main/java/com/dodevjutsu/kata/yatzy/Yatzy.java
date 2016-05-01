@@ -25,7 +25,7 @@ public class Yatzy {
 
         dice = diceReruns.doReRuns(dice);
 
-        notifier.notifyCategoryScore(Ones, 4);
+        notifier.notifyCategoryScore(Ones, Ones.scoreFor(dice));
 
         notifier.notifyCategory(Twos);
 
@@ -34,6 +34,6 @@ public class Yatzy {
 
         dice = diceReruns.doReRuns(dice);
 
-        notifier.notifyCategoryScore(Twos, 5);
+        notifier.notifyCategoryScore(Twos, Twos.scoreFor(dice));
     }
 }
