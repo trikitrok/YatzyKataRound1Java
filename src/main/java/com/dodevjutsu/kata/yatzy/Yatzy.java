@@ -22,6 +22,15 @@ public class Yatzy {
     }
 
     public void play() {
+        playCategories();
+        summarizeGame();
+    }
+
+    private void summarizeGame() {
+        notifier.notifyGameSummary(categories, scoresArchive);
+    }
+
+    private void playCategories() {
         for(Category category : categories) {
             notifier.notifyCategory(category);
             Dice dice = diceRoller.rollAll();
@@ -31,8 +40,6 @@ public class Yatzy {
             notifier.notifyCategoryScore(category, score);
             scoresArchive.register(category, score);
         }
-
-        notifier.notifyGameSummary(categories, scoresArchive);
     }
 
 }
