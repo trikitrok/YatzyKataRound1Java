@@ -1,7 +1,7 @@
 package com.dodevjutsu.kata.yatzy;
 
 public enum Category {
-    Ones;
+    Ones, Twos;
 
     @Override
     public String toString() {

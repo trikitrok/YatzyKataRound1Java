@@ -23,7 +23,7 @@ public class ConsoleNotifier implements Notifier {
 
     @Override
     public void notifyCategoryScore(Category category, int score) {
-        console.print("Category Ones score: 4");
+        console.print("Category " + category.name() + " score: " + score);
     }
 
     @Override

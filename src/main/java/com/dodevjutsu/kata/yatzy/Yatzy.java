@@ -1,5 +1,6 @@
 package com.dodevjutsu.kata.yatzy;
 
+import static com.dodevjutsu.kata.yatzy.Category.*;
 import static com.dodevjutsu.kata.yatzy.Category.Ones;
 
 public class Yatzy {
@@ -25,5 +26,14 @@ public class Yatzy {
         dice = diceReruns.doReRuns(dice);
 
         notifier.notifyCategoryScore(Ones, 4);
+
+        notifier.notifyCategory(Twos);
+
+        dice = diceRoller.rollAll();
+        notifier.notifyCurrentDice(dice);
+
+        dice = diceReruns.doReRuns(dice);
+
+        notifier.notifyCategoryScore(Twos, 5);
     }
 }
