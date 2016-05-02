@@ -39,15 +39,17 @@ public class Yatzy {
     }
 
     private void playCategories() {
-        for(Category category : categories) {
-            notifier.notifyCategory(category);
-            Dice dice = diceRoller.rollAll();
-            notifier.notifyCurrentDice(dice);
-            dice = diceReruns.doReRuns(dice);
-            int score = category.scoreFor(dice);
-            notifier.notifyCategoryScore(category, score);
-            scoresArchive.register(category, score);
-        }
+        categories.forEach(this::playCategory);
+    }
+
+    private void playCategory(Category category) {
+        notifier.notifyCategory(category);
+        Dice dice = diceRoller.rollAll();
+        notifier.notifyCurrentDice(dice);
+        dice = diceReruns.doReRuns(dice);
+        int score = category.scoreFor(dice);
+        notifier.notifyCategoryScore(category, score);
+        scoresArchive.register(category, score);
     }
 
     public static void main(String[] args) {
