@@ -25,6 +25,6 @@ public class InMemoryScoresArchive implements ScoresArchive {
         return scoresByCategory.values()
             .stream()
             .mapToInt(score -> score.value())
-            .reduce(0, (a, b) -> a + b);
+            .sum();
     }
 }
