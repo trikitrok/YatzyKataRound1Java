@@ -1,21 +1,22 @@
 package com.dodevjutsu.kata.yatzy.infrastructure.scores_archives;
 
 import com.dodevjutsu.kata.yatzy.core.Category;
+import com.dodevjutsu.kata.yatzy.core.Score;
 import com.dodevjutsu.kata.yatzy.core.ScoresArchive;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class InMemoryScoresArchive implements ScoresArchive {
-    Map<Category, Integer> scoresByCategory = new HashMap<>();
+    Map<Category, Score> scoresByCategory = new HashMap<>();
 
     @Override
-    public void register(Category category, int score) {
-        scoresByCategory.put(category, score);
+    public void register(Score score) {
+        scoresByCategory.put(score.category(), score);
     }
 
     @Override
-    public int retrieve(Category category) {
+    public Score retrieve(Category category) {
         return scoresByCategory.get(category);
     }
 
@@ -23,6 +24,7 @@ public class InMemoryScoresArchive implements ScoresArchive {
     public int totalScore() {
         return scoresByCategory.values()
             .stream()
+            .mapToInt(score -> score.value())
             .reduce(0, (a, b) -> a + b);
     }
 }

@@ -27,8 +27,8 @@ public class ConsoleNotifier implements Notifier {
     }
 
     @Override
-    public void notifyCategoryScore(Category category, int score) {
-        console.print(category.scoreAsString(score));
+    public void notifyCategoryScore(Score score) {
+        console.print(score.description());
     }
 
     @Override
@@ -39,10 +39,8 @@ public class ConsoleNotifier implements Notifier {
     @Override
     public void notifyGameSummary(GameSummary gameSummary) {
         console.print(gameSummary.header());
-        List<String> categoriesScores = gameSummary.categoriesScoresAsStrings();
-        for (String categoryScore : categoriesScores) {
-            console.print(categoryScore);
-        }
+        List<String> scores = gameSummary.scoresSummaryDescriptions();
+        scores.forEach(console::print);
         console.print(gameSummary.finalScore());
     }
 }

@@ -1,5 +1,6 @@
 package unit_tests;
 
+import com.dodevjutsu.kata.yatzy.core.Score;
 import com.dodevjutsu.kata.yatzy.core.ScoresArchive;
 import com.dodevjutsu.kata.yatzy.infrastructure.scores_archives.InMemoryScoresArchive;
 import org.junit.Test;
@@ -13,22 +14,22 @@ public class InMemoryScoresArchiveTest {
     public void registers_and_retrieves_scores_by_category() {
         ScoresArchive scoresArchive = new InMemoryScoresArchive();
 
-        scoresArchive.register(Ones, 4);
-        scoresArchive.register(Twos, 2);
-        scoresArchive.register(Threes, 3);
+        scoresArchive.register(new Score(Ones, 4));
+        scoresArchive.register(new Score(Twos, 2));
+        scoresArchive.register(new Score(Threes, 3));
 
-        assertThat(scoresArchive.retrieve(Ones), is(4));
-        assertThat(scoresArchive.retrieve(Twos), is(2));
-        assertThat(scoresArchive.retrieve(Threes), is(3));
+        assertThat(scoresArchive.retrieve(Ones), is(new Score(Ones, 4)));
+        assertThat(scoresArchive.retrieve(Twos), is(new Score(Twos, 2)));
+        assertThat(scoresArchive.retrieve(Threes), is(new Score(Threes, 3)));
     }
 
     @Test
     public void computes_total_score() {
         ScoresArchive scoresArchive = new InMemoryScoresArchive();
 
-        scoresArchive.register(Ones, 4);
-        scoresArchive.register(Twos, 5);
-        scoresArchive.register(Threes, 3);
+        scoresArchive.register(new Score(Ones, 4));
+        scoresArchive.register(new Score(Twos, 5));
+        scoresArchive.register(new Score(Threes, 3));
 
         assertThat(scoresArchive.totalScore(), is(12));
     }

@@ -84,11 +84,11 @@ public class ConsoleNotifierTest {
 
         context.checking(new Expectations() {{
             oneOf(scoresArchive).retrieve(Ones);
-            will(returnValue(2));
+            will(returnValue(new Score(Ones, 2)));
             oneOf(scoresArchive).retrieve(Twos);
-            will(returnValue(4));
+            will(returnValue(new Score(Twos,4)));
             oneOf(scoresArchive).retrieve(Threes);
-            will(returnValue(3));
+            will(returnValue(new Score(Threes, 3)));
             oneOf(scoresArchive).totalScore();
             will(returnValue(9));
             oneOf(console).print("Yahtzee score");

@@ -16,9 +16,10 @@ public class GameSummary {
         return "Yahtzee score";
     }
 
-    public List<String> categoriesScoresAsStrings() {
+    public List<String> scoresSummaryDescriptions() {
         return categories.stream()
-            .map(category -> category.name() + ": " + scoresArchive.retrieve(category))
+            .map(category -> scoresArchive.retrieve(category))
+            .map(score -> score.summaryDescription())
             .collect(Collectors.toList());
     }
 

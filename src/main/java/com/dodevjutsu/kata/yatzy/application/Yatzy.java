@@ -47,9 +47,9 @@ public class Yatzy {
         Dice dice = diceRoller.rollAll();
         notifier.notifyCurrentDice(dice);
         dice = diceReruns.doReRuns(dice);
-        int score = category.scoreFor(dice);
-        notifier.notifyCategoryScore(category, score);
-        scoresArchive.register(category, score);
+        Score score = category.scoreFor(dice);
+        notifier.notifyCategoryScore(score);
+        scoresArchive.register(score);
     }
 
     public static void main(String[] args) {

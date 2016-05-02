@@ -1,22 +1,24 @@
 package com.dodevjutsu.kata.yatzy.core;
 
+import static com.dodevjutsu.kata.yatzy.core.Side.*;
+
 public enum Category {
     Ones {
         @Override
-        public int scoreFor(Dice dice) {
-            return dice.countWithSide(Side.S1);
+        public Score scoreFor(Dice dice) {
+            return new Score(this, dice.countWithSide(S1));
         }
     },
     Twos {
         @Override
-        public int scoreFor(Dice dice) {
-            return dice.countWithSide(Side.S2);
+        public Score scoreFor(Dice dice) {
+            return new Score(this, dice.countWithSide(S2));
         }
     },
     Threes {
         @Override
-        public int scoreFor(Dice dice) {
-            return dice.countWithSide(Side.S3);
+        public Score scoreFor(Dice dice) {
+            return new Score(this, dice.countWithSide(S3));
         }
     };
 
@@ -25,9 +27,5 @@ public enum Category {
         return "Category: " + this.name();
     }
 
-    abstract public int scoreFor(Dice dice);
-
-    public String scoreAsString(int score) {
-        return "Category " + this.name() + " score: " + score;
-    }
+    abstract public Score scoreFor(Dice dice);
 }
