@@ -12,10 +12,6 @@ public class Dice {
         this.values = values;
     }
 
-    public Dice() {
-
-    }
-
     public String lastRolls() {
         return IntStream.range(0, values.size())
             .mapToObj(i -> String.format("D%d:%s ", i + 1, values.get(i)))
