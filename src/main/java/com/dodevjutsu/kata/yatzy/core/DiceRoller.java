@@ -21,8 +21,8 @@ public class DiceRoller {
 
     public Dice roll(Dice dice, List<Integer> diceToRerunIndexes) {
         Side[] sides = dice.values().toArray(new Side[0]);
-        for (int i = 0; i < diceToRerunIndexes.size(); i++) {
-            sides[diceToRerunIndexes.get(i)] = dieRoller.roll();
+        for (Integer index : diceToRerunIndexes) {
+            sides[index] = dieRoller.roll();
         }
         return new Dice(Arrays.asList(sides));
     }
