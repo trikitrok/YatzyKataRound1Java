@@ -30,6 +30,9 @@ public class InputLine {
     }
 
     private int dieRepresentationToIndex(String token) {
+        if(!indexesByDieRepresentation.containsKey(token)) {
+            throw new WrongInputException(line);
+        }
         return indexesByDieRepresentation.get(token);
     }
 }
