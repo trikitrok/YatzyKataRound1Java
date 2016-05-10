@@ -1,6 +1,6 @@
 package com.dodevjutsu.kata.yatzy.core;
 
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
 
@@ -12,6 +12,10 @@ public class Dice {
         this.values = values;
     }
 
+    public Dice() {
+
+    }
+
     public String lastRolls() {
         return IntStream.range(0, values.size())
             .mapToObj(i -> String.format("D%d:%s ", i + 1, values.get(i)))
@@ -19,14 +23,26 @@ public class Dice {
             .trim();
     }
 
-    public List<Side> values() {
-        return Collections.unmodifiableList(values);
-    }
-
     public int countWithSide(Side side) {
         return (int) values.stream()
             .filter(s -> s.equals(side))
             .count();
+    }
+
+    public static Dice rollAll(DieRoller dieRoller) {
+        List<Side> sides = new ArrayList<>();
+        for (int i = 0; i < Dice.NUMBER; i++) {
+            sides.add(dieRoller.roll());
+        }
+        return new Dice(sides);
+    }
+
+    public Dice roll(List<Integer> diceToRerunIndexes, DieRoller dieRoller) {
+        List<Side> sides = new ArrayList<>(values);
+        for (Integer index : diceToRerunIndexes) {
+            sides.set(index, dieRoller.roll());
+        }
+        return new Dice(sides);
     }
 
     @Override

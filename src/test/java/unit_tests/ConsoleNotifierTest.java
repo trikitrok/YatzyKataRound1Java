@@ -50,12 +50,12 @@ public class ConsoleNotifierTest {
 
     @Test
     public void asks_user_to_input_dice_to_reroll() {
-        DiceRoller notNeededDiceRoller = null;
-        Notifier notNeededNotifierr = null;
+        DieRoller notNeededDieRoller = null;
+        Notifier notNeededNotifier = null;
         InputReader notNeededInputReader = null;
         final int NUM_RERUNS_SO_FAR = 1;
         DiceRerun diceRerun = new DiceRerun(
-            NUM_RERUNS_SO_FAR, notNeededDiceRoller, notNeededNotifierr, notNeededInputReader
+            NUM_RERUNS_SO_FAR, notNeededDieRoller, notNeededNotifier, notNeededInputReader
         );
         context.checking(new Expectations() {{
             oneOf(console).print("[1] Dice to re-run:");

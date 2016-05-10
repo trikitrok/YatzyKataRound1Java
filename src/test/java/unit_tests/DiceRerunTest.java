@@ -1,7 +1,6 @@
 package unit_tests;
 
 import com.dodevjutsu.kata.yatzy.core.*;
-import com.dodevjutsu.kata.yatzy.core.DieRoller;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.Before;
@@ -30,7 +29,7 @@ public class DiceRerunTest {
         inputReader = context.mock(InputReader.class);
         dieRoller = context.mock(DieRoller.class);
         diceRerun = new DiceRerun(
-            rerun_number, new DiceRoller(dieRoller), notifier, inputReader
+            rerun_number, dieRoller, notifier, inputReader
         );
         initialDice = new Dice(Arrays.asList(S1, S1, S1, S1, S1));
     }

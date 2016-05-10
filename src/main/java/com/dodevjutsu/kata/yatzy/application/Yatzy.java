@@ -16,16 +16,16 @@ import static com.dodevjutsu.kata.yatzy.core.Category.*;
 
 public class Yatzy {
     private static final int NUMBER_OF_RERUNS = 2;
-    private final DiceRoller diceRoller;
     private final Notifier notifier;
     private final DiceReruns diceReruns;
     private final ScoresArchive scoresArchive;
     private List<Category> categories = Arrays.asList(Ones, Twos, Threes);
+    private DieRoller dieRoller;
 
     public Yatzy(DieRoller dieRoller, Notifier notifier, InputReader inputReader, ScoresArchive scoresArchive) {
+        this.dieRoller = dieRoller;
         this.notifier = notifier;
-        this.diceRoller = new DiceRoller(dieRoller);
-        this.diceReruns = new DiceReruns(NUMBER_OF_RERUNS, diceRoller, notifier, inputReader);
+        this.diceReruns = new DiceReruns(NUMBER_OF_RERUNS, dieRoller, notifier, inputReader);
         this.scoresArchive = scoresArchive;
     }
 
@@ -44,7 +44,7 @@ public class Yatzy {
 
     private void playCategory(Category category) {
         notifier.notifyCategory(category);
-        Dice dice = diceRoller.rollAll();
+        Dice dice = Dice.rollAll(dieRoller);
         notifier.notifyCurrentDice(dice);
         dice = diceReruns.doReRuns(dice);
         Score score = category.scoreFor(dice);

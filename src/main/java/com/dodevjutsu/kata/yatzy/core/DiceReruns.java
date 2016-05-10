@@ -6,9 +6,9 @@ import java.util.List;
 public class DiceReruns {
     List<DiceRerun> diceReruns = new ArrayList<>();
 
-    public DiceReruns(int numberOfReruns, DiceRoller diceRoller, Notifier notifier, InputReader inputReader) {
+    public DiceReruns(int numberOfReruns, DieRoller dieRoller, Notifier notifier, InputReader inputReader) {
         for (int i = 1; i <= numberOfReruns; i++) {
-            diceReruns.add(new DiceRerun(i, diceRoller, notifier, inputReader));
+            diceReruns.add(new DiceRerun(i, dieRoller, notifier, inputReader));
         }
     }
 
