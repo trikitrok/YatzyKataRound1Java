@@ -54,11 +54,10 @@ public class Yatzy {
 
     public static void main(String[] args) {
         Console console = new SystemConsole();
-        ConsoleNotifier consoleNotifier = new ConsoleNotifier(console);
 
         Yatzy yatzy = new Yatzy(
             new RandomDieRoller(),
-            consoleNotifier,
+            new ConsoleNotifier(console),
             new ConsoleInputReader(console),
             new InMemoryScoresArchive()
         );
