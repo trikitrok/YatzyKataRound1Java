@@ -2,7 +2,7 @@ package com.dodevjutsu.kata.yatzy.application;
 
 import com.dodevjutsu.kata.yatzy.core.*;
 import com.dodevjutsu.kata.yatzy.infrastructure.Console;
-import com.dodevjutsu.kata.yatzy.infrastructure.DieRoller;
+import com.dodevjutsu.kata.yatzy.core.DieRoller;
 import com.dodevjutsu.kata.yatzy.infrastructure.consoles.SystemConsole;
 import com.dodevjutsu.kata.yatzy.infrastructure.die_rollers.RandomDieRoller;
 import com.dodevjutsu.kata.yatzy.infrastructure.input_readers.ConsoleInputReader;

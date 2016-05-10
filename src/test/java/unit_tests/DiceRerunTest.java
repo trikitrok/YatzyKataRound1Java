@@ -1,7 +1,7 @@
 package unit_tests;
 
 import com.dodevjutsu.kata.yatzy.core.*;
-import com.dodevjutsu.kata.yatzy.infrastructure.DieRoller;
+import com.dodevjutsu.kata.yatzy.core.DieRoller;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.Before;
