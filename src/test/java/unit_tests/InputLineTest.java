@@ -7,6 +7,8 @@ import org.junit.Test;
 import org.junit.rules.ExpectedException;
 
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -21,6 +23,11 @@ public class InputLineTest {
     public void extracts_dice_from_input() {
         assertThat(new InputLine("D2 D3 D4").extractDiceIndexes(), is(Arrays.asList(1, 2, 3)));
         assertThat(new InputLine("D1 D3 D5").extractDiceIndexes(), is(Arrays.asList(0, 2, 4)));
+    }
+
+    @Test
+    public void extracts_dice_from_empty_input() {
+        assertThat(new InputLine("").extractDiceIndexes(), is(Collections.emptyList()));
     }
 
     @Test

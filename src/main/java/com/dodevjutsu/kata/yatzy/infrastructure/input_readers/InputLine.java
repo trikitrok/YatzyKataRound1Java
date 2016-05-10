@@ -1,5 +1,6 @@
 package com.dodevjutsu.kata.yatzy.infrastructure.input_readers;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,6 +24,10 @@ public class InputLine {
     }
 
     public List<Integer> extractDiceIndexes() {
+        if("".equals(line)) {
+            return Collections.emptyList();
+        }
+
         String[] dieRepresentations = line.split(" ");
         return Stream.of(dieRepresentations)
             .map(this::dieRepresentationToIndex)
