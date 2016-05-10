@@ -22,11 +22,6 @@ public class ConsoleNotifier implements Notifier {
     }
 
     @Override
-    public void notifyUserInput(String input) {
-        console.print(input);
-    }
-
-    @Override
     public void notifyCategoryScore(Score score) {
         console.print(score.description());
     }

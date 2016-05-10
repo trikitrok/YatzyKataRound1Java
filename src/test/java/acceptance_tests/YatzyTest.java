@@ -20,12 +20,11 @@ public class YatzyTest {
     public void playing_yatzi_on_the_console() {
         Console console = context.mock(Console.class);
         DieRoller dieRoller = context.mock(DieRoller.class);
-        ConsoleNotifier consoleNotifier = new ConsoleNotifier(console);
 
         Yatzy yatzy = new Yatzy(
             dieRoller,
-            consoleNotifier,
-            new ConsoleInputReader(console, consoleNotifier),
+            new ConsoleNotifier(console),
+            new ConsoleInputReader(console),
             new InMemoryScoresArchive()
         );
 
@@ -56,30 +55,24 @@ public class YatzyTest {
             oneOf(console).print("Category: Ones");
             oneOf(console).print("Dice: D1:2 D2:4 D3:1 D4:6 D5:1");
             oneOf(console).print("[1] Dice to re-run:");
-            oneOf(console).print("D1 D2 D4");
             oneOf(console).print("Dice: D1:1 D2:5 D3:1 D4:2 D5:1");
             oneOf(console).print("[2] Dice to re-run:");
-            oneOf(console).print("D2 D4");
             oneOf(console).print("Dice: D1:1 D2:1 D3:1 D4:5 D5:1");
             oneOf(console).print("Category Ones score: 4");
 
             oneOf(console).print("Category: Twos");
             oneOf(console).print("Dice: D1:3 D2:5 D3:6 D4:2 D5:2");
             oneOf(console).print("[1] Dice to re-run:");
-            oneOf(console).print("D1 D2 D3");
             oneOf(console).print("Dice: D1:2 D2:4 D3:3 D4:2 D5:2");
             oneOf(console).print("[2] Dice to re-run:");
-            oneOf(console).print("D2 D3");
             oneOf(console).print("Dice: D1:2 D2:5 D3:2 D4:2 D5:2");
             oneOf(console).print("Category Twos score: 4");
 
             oneOf(console).print("Category: Threes");
             oneOf(console).print("Dice: D1:4 D2:3 D3:3 D4:5 D5:6");
             oneOf(console).print("[1] Dice to re-run:");
-            oneOf(console).print("D1 D4 D5");
             oneOf(console).print("Dice: D1:6 D2:3 D3:3 D4:2 D5:1");
             oneOf(console).print("[2] Dice to re-run:");
-            oneOf(console).print("D1 D4 D5");
             oneOf(console).print("Dice: D1:3 D2:3 D3:3 D4:5 D5:4");
             oneOf(console).print("Category Threes score: 3");
 

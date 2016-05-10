@@ -67,18 +67,6 @@ public class ConsoleNotifierTest {
     }
 
     @Test
-    public void notifies_user_input() {
-        String anyArbitraryInput = "anything";
-        context.checking(new Expectations() {{
-            oneOf(console).print(anyArbitraryInput);
-        }});
-
-        consoleNotifier.notifyUserInput(anyArbitraryInput);
-
-        context.assertIsSatisfied();
-    }
-
-    @Test
     public void notifies_game_summary() {
         ScoresArchive scoresArchive = context.mock(ScoresArchive.class);
 

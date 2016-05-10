@@ -59,7 +59,7 @@ public class Yatzy {
         Yatzy yatzy = new Yatzy(
             new RandomDieRoller(),
             consoleNotifier,
-            new ConsoleInputReader(console, consoleNotifier),
+            new ConsoleInputReader(console),
             new InMemoryScoresArchive()
         );
 

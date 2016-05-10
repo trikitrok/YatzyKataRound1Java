@@ -5,8 +5,6 @@ public interface Notifier {
 
     void notifyCurrentDice(Dice dice);
 
-    void notifyUserInput(String input);
-
     void notifyCategoryScore(Score score);
 
     void askForDiceToRerun(DiceRerun diceRerun);
