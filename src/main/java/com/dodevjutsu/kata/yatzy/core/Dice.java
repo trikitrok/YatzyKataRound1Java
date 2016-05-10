@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.stream.IntStream;
 
 public class Dice {
-    public static final int NUMBER = 5;
+    private static final int NUMBER = 5;
     List<Side> values;
 
     public Dice(List<Side> values) {
