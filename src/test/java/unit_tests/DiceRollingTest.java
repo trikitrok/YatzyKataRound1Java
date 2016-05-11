@@ -36,7 +36,7 @@ public class DiceRollingTest {
     }
 
     @Test
-    public void rolling_give_dice() {
+    public void rolling_given_dice() {
         DieRoller dieRoller = context.mock(DieRoller.class);
         Dice dice = dice(S1, S1, S1, S1, S1);
         context.checking(new Expectations() {{
