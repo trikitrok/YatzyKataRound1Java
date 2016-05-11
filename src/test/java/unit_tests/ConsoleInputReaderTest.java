@@ -5,6 +5,7 @@ import com.dodevjutsu.kata.yatzy.infrastructure.Console;
 import com.dodevjutsu.kata.yatzy.infrastructure.input_readers.ConsoleInputReader;
 import org.jmock.Expectations;
 import org.jmock.Mockery;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -14,13 +15,22 @@ import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
 
 public class ConsoleInputReaderTest {
-    @Test
-    public void reads_dice_to_reroll() {
-        Mockery context = new Mockery();
-        Console console = context.mock(Console.class);
-        Notifier notifier = context.mock(Notifier.class);
-        ConsoleInputReader consoleInputReader = new ConsoleInputReader(console, notifier);
+    private static final String WRONG_INPUT = "wrong input";
+    Mockery context = new Mockery();
+    private Notifier notifier;
+    private Console console;
+    private ConsoleInputReader consoleInputReader;
 
+    @Before
+    public void setUp() throws Exception {
+        context = new Mockery();
+        console = context.mock(Console.class);
+        notifier = context.mock(Notifier.class);
+        consoleInputReader = new ConsoleInputReader(console, notifier);
+    }
+
+    @Test
+    public void reads_dice_to_rerun() {
         context.checking(new Expectations() {{
             ignoring(notifier);
             atLeast(1).of(console).readLine();
@@ -31,12 +41,7 @@ public class ConsoleInputReaderTest {
     }
 
     @Test
-    public void asks_the_user_to_input_which_dice_to_rerun() {
-        Mockery context = new Mockery();
-        Console console = context.mock(Console.class);
-        Notifier notifier = context.mock(Notifier.class);
-        ConsoleInputReader consoleInputReader = new ConsoleInputReader(console, notifier);
-
+    public void asks_the_user_to_enter_the_dice_to_rerun() {
         context.checking(new Expectations() {{
             ignoring(console);
             oneOf(notifier).askForDiceToRerun("anything");
@@ -49,18 +54,13 @@ public class ConsoleInputReaderTest {
 
     @Test
     public void retries_when_input_is_wrong() {
-        Mockery context = new Mockery();
-        Console console = context.mock(Console.class);
-        Notifier notifier = context.mock(Notifier.class);
-        ConsoleInputReader consoleInputReader = new ConsoleInputReader(console, notifier);
-
         context.checking(new Expectations() {{
-            atLeast(2).of(console).readLine();
+            exactly(2).of(console).readLine();
             will(onConsecutiveCalls(
-                returnValue("wrong input"),
+                returnValue(WRONG_INPUT),
                 returnValue("D5 D3 D1")
             ));
-            oneOf(notifier).notifyInputError(with(containsString("wrong input")));
+            oneOf(notifier).notifyInputError(with(containsString(WRONG_INPUT)));
             exactly(2).of(notifier).askForDiceToRerun("anything");
         }});
 
