@@ -1,6 +1,9 @@
 package unit_tests;
 
-import com.dodevjutsu.kata.yatzy.core.*;
+import com.dodevjutsu.kata.yatzy.core.Dice;
+import com.dodevjutsu.kata.yatzy.core.GameSummary;
+import com.dodevjutsu.kata.yatzy.core.Score;
+import com.dodevjutsu.kata.yatzy.core.ScoresArchive;
 import com.dodevjutsu.kata.yatzy.infrastructure.Console;
 import com.dodevjutsu.kata.yatzy.infrastructure.notifiers.ConsoleNotifier;
 import org.jmock.Expectations;
