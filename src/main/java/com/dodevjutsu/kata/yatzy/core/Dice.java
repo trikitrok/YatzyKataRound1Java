@@ -27,7 +27,7 @@ public class Dice {
 
     public static Dice rollAll(DieRoller dieRoller) {
         List<Side> sides = new ArrayList<>();
-        for (int i = 0; i < Dice.NUMBER; i++) {
+        for (int i = 0; i < NUMBER; i++) {
             sides.add(dieRoller.roll());
         }
         return new Dice(sides);
