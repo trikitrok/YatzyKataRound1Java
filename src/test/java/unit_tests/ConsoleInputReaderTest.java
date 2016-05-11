@@ -43,9 +43,10 @@ public class ConsoleInputReaderTest {
     @Test
     public void asks_the_user_to_enter_the_dice_to_rerun() {
         int rerunNumber = 1;
+        String rerunRequest = "[1] Dice to re-run:";
         context.checking(new Expectations() {{
             ignoring(console);
-            oneOf(notifier).askForDiceToRerun("[1] Dice to re-run:");
+            oneOf(notifier).askForDiceToRerun(rerunRequest);
         }});
 
         consoleInputReader.diceToRerun(rerunNumber);
@@ -56,6 +57,7 @@ public class ConsoleInputReaderTest {
     @Test
     public void retries_when_input_is_wrong() {
         int rerunNumber = 3;
+        String rerunRequest = "[3] Dice to re-run:";
         context.checking(new Expectations() {{
             exactly(2).of(console).readLine();
             will(onConsecutiveCalls(
@@ -63,7 +65,7 @@ public class ConsoleInputReaderTest {
                 returnValue("D5 D3 D1")
             ));
             oneOf(notifier).notifyInputError(with(containsString(WRONG_INPUT)));
-            exactly(2).of(notifier).askForDiceToRerun("[3] Dice to re-run:");
+            exactly(2).of(notifier).askForDiceToRerun(rerunRequest);
         }});
 
         assertThat(consoleInputReader.diceToRerun(rerunNumber), is(Arrays.asList(4, 2, 0)));

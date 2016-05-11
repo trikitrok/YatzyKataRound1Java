@@ -27,8 +27,8 @@ public class ConsoleNotifier implements Notifier {
     }
 
     @Override
-    public void askForDiceToRerun(String rerunMessage) {
-        console.print(rerunMessage);
+    public void askForDiceToRerun(String rerunRequest) {
+        console.print(rerunRequest);
     }
 
     @Override

@@ -7,7 +7,7 @@ public interface Notifier {
 
     void notifyCategoryScore(Score score);
 
-    void askForDiceToRerun(String rerunMessage);
+    void askForDiceToRerun(String rerunRequest);
 
     void notifyGameSummary(GameSummary gameSummary);
 
