@@ -17,10 +17,10 @@ public class ConsoleInputReader implements InputReader {
 
     public List<Integer> diceToRerun(int rerunNumber) {
         notifier.askForDiceToRerun(requestPhrase(rerunNumber));
-        return extractDiceToRerun(rerunNumber);
+        return getDiceToRerun(rerunNumber);
     }
 
-    private List<Integer> extractDiceToRerun(int rerunNumber) {
+    private List<Integer> getDiceToRerun(int rerunNumber) {
         List<Integer> diceToRerun;
         String line = console.readLine();
         try {
