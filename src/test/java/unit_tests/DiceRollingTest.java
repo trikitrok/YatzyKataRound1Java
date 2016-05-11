@@ -12,6 +12,7 @@ import java.util.List;
 import static com.dodevjutsu.kata.yatzy.core.Side.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
+import static test_helpers.Factories.dice;
 
 public class DiceRollingTest {
     Mockery context = new Mockery();
@@ -31,14 +32,13 @@ public class DiceRollingTest {
 
         Dice dice = Dice.rollAll(dieRoller);
 
-        assertThat(dice, is(new Dice(Arrays.asList(S2, S3, S5, S6, S1))));
+        assertThat(dice, is(dice(S2, S3, S5, S6, S1)));
     }
 
     @Test
     public void rolling_give_dice() {
         DieRoller dieRoller = context.mock(DieRoller.class);
-        List<Integer> diceToRerollIndexes = Arrays.asList(0, 2, 4);
-        Dice dice = new Dice(Arrays.asList(S1, S1, S1, S1, S1));
+        Dice dice = dice(S1, S1, S1, S1, S1);
         context.checking(new Expectations() {{
             exactly(3).of(dieRoller).roll();
             will(onConsecutiveCalls(
@@ -47,8 +47,8 @@ public class DiceRollingTest {
                 returnValue(S2)));
         }});
 
-        dice = dice.roll(diceToRerollIndexes, dieRoller);
+        dice = dice.roll(Arrays.asList(0, 2, 4), dieRoller);
 
-        assertThat(dice, is(new Dice(Arrays.asList(S2, S1, S2, S1, S2))));
+        assertThat(dice, is(dice(S2, S1, S2, S1, S2)));
     }
 }

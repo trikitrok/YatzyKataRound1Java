@@ -10,11 +10,13 @@ import org.jmock.Expectations;
 import org.jmock.Mockery;
 import org.junit.Before;
 import org.junit.Test;
+import test_helpers.Factories;
 
 import java.util.Arrays;
 
 import static com.dodevjutsu.kata.yatzy.core.Category.*;
 import static com.dodevjutsu.kata.yatzy.core.Side.*;
+import static test_helpers.Factories.dice;
 
 public class ConsoleNotifierTest {
     Mockery context;
@@ -41,7 +43,7 @@ public class ConsoleNotifierTest {
 
     @Test
     public void notifies_current_dice() {
-        Dice dice = new Dice(Arrays.asList(S2, S4, S1, S6, S1));
+        Dice dice = dice(S2, S4, S1, S6, S1);
         context.checking(new Expectations() {{
             oneOf(console).print("Dice: D1:2 D2:4 D3:1 D4:6 D5:1");
         }});

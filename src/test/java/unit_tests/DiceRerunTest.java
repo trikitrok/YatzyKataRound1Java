@@ -11,6 +11,7 @@ import java.util.Arrays;
 import static com.dodevjutsu.kata.yatzy.core.Side.*;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
+import static test_helpers.Factories.dice;
 
 public class DiceRerunTest {
 
@@ -31,7 +32,7 @@ public class DiceRerunTest {
         diceRerun = new DiceRerun(
             rerun_number, dieRoller, notifier, inputReader
         );
-        initialDice = new Dice(Arrays.asList(S1, S1, S1, S1, S1));
+        initialDice = dice(S1, S1, S1, S1, S1);
     }
 
     @Test
@@ -44,7 +45,7 @@ public class DiceRerunTest {
             atLeast(1).of(inputReader).diceToRerun(with(any(Integer.class)));
             will(returnValue(Arrays.asList(1, 4)));
 
-            oneOf(notifier).notifyCurrentDice(new Dice(Arrays.asList(S1, S4, S1, S1, S5)));
+            oneOf(notifier).notifyCurrentDice(dice(S1, S4, S1, S1, S5));
         }});
 
         diceRerun.doRerun(initialDice);
@@ -64,9 +65,6 @@ public class DiceRerunTest {
             ignoring(notifier);
         }});
 
-        assertThat(
-            diceRerun.doRerun(initialDice),
-            is(new Dice(Arrays.asList(S2, S1, S1, S4, S1)))
-        );
+        assertThat(diceRerun.doRerun(initialDice), is(dice(S2, S1, S1, S4, S1)));
     }
 }
