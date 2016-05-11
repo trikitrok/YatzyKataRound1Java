@@ -35,30 +35,14 @@ public class DiceRerunTest {
     }
 
     @Test
-    public void asks_the_user_to_input_which_dice_to_rerun() {
-        context.checking(new Expectations() {{
-            ignoring(inputReader);
-            ignoring(dieRoller);
-            allowing(notifier).notifyCurrentDice(with(any(Dice.class)));
-
-            oneOf(notifier).askForDiceToRerun(diceRerun);
-        }});
-
-        diceRerun.doRerun(initialDice);
-
-        context.assertIsSatisfied();
-    }
-
-    @Test
     public void notifies_the_current_dice() {
         context.checking(new Expectations() {{
             atLeast(1).of(dieRoller).roll();
             will(onConsecutiveCalls(
                 returnValue(S4), returnValue(S5)
             ));
-            atLeast(1).of(inputReader).diceToRerun();
+            atLeast(1).of(inputReader).diceToRerun(with(any(String.class)));
             will(returnValue(Arrays.asList(1, 4)));
-            allowing(notifier).askForDiceToRerun(diceRerun);
 
             oneOf(notifier).notifyCurrentDice(new Dice(Arrays.asList(S1, S4, S1, S1, S5)));
         }});
@@ -75,7 +59,7 @@ public class DiceRerunTest {
             will(onConsecutiveCalls(
                 returnValue(S2), returnValue(S4)
             ));
-            atLeast(1).of(inputReader).diceToRerun();
+            atLeast(1).of(inputReader).diceToRerun(with(any(String.class)));
             will(returnValue(Arrays.asList(0, 3)));
             ignoring(notifier);
         }});

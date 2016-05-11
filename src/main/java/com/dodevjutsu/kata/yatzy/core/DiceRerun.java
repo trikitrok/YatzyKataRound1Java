@@ -14,8 +14,7 @@ public class DiceRerun {
     }
 
     public Dice doRerun(Dice dice) {
-        notifier.askForDiceToRerun(this);
-        dice = dice.roll(inputReader.diceToRerun(), dieRoller);
+        dice = dice.roll(inputReader.diceToRerun(requestPhrase()), dieRoller);
         notifier.notifyCurrentDice(dice);
         return dice;
     }

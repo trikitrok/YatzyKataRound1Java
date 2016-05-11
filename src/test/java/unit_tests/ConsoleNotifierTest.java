@@ -61,7 +61,7 @@ public class ConsoleNotifierTest {
             oneOf(console).print("[1] Dice to re-run:");
         }});
 
-        consoleNotifier.askForDiceToRerun(diceRerun);
+        consoleNotifier.askForDiceToRerun("[1] Dice to re-run:");
 
         context.assertIsSatisfied();
     }

@@ -27,8 +27,8 @@ public class ConsoleNotifier implements Notifier {
     }
 
     @Override
-    public void askForDiceToRerun(DiceRerun diceRerun) {
-        console.print(diceRerun.requestPhrase());
+    public void askForDiceToRerun(String rerunMessage) {
+        console.print(rerunMessage);
     }
 
     @Override
@@ -37,5 +37,10 @@ public class ConsoleNotifier implements Notifier {
         List<String> scores = gameSummary.scoresSummaryDescriptions();
         scores.forEach(console::print);
         console.print(gameSummary.finalScore());
+    }
+
+    @Override
+    public void notifyInputError(String errorMessage) {
+        console.print(errorMessage);
     }
 }
