@@ -41,7 +41,7 @@ public class DiceRerunTest {
             will(onConsecutiveCalls(
                 returnValue(S4), returnValue(S5)
             ));
-            atLeast(1).of(inputReader).diceToRerun(with(any(String.class)));
+            atLeast(1).of(inputReader).diceToRerun(with(any(Integer.class)));
             will(returnValue(Arrays.asList(1, 4)));
 
             oneOf(notifier).notifyCurrentDice(new Dice(Arrays.asList(S1, S4, S1, S1, S5)));
@@ -59,7 +59,7 @@ public class DiceRerunTest {
             will(onConsecutiveCalls(
                 returnValue(S2), returnValue(S4)
             ));
-            atLeast(1).of(inputReader).diceToRerun(with(any(String.class)));
+            atLeast(1).of(inputReader).diceToRerun(with(any(Integer.class)));
             will(returnValue(Arrays.asList(0, 3)));
             ignoring(notifier);
         }});

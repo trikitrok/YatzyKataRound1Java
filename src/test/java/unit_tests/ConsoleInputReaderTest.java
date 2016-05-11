@@ -37,23 +37,25 @@ public class ConsoleInputReaderTest {
             will(onConsecutiveCalls(returnValue("D1 D2 D4")));
         }});
 
-        assertThat(consoleInputReader.diceToRerun("anything"), is(Arrays.asList(0, 1, 3)));
+        assertThat(consoleInputReader.diceToRerun(1), is(Arrays.asList(0, 1, 3)));
     }
 
     @Test
     public void asks_the_user_to_enter_the_dice_to_rerun() {
+        int rerunNumber = 1;
         context.checking(new Expectations() {{
             ignoring(console);
-            oneOf(notifier).askForDiceToRerun("anything");
+            oneOf(notifier).askForDiceToRerun("[1] Dice to re-run:");
         }});
 
-        consoleInputReader.diceToRerun("anything");
+        consoleInputReader.diceToRerun(rerunNumber);
 
         context.assertIsSatisfied();
     }
 
     @Test
     public void retries_when_input_is_wrong() {
+        int rerunNumber = 3;
         context.checking(new Expectations() {{
             exactly(2).of(console).readLine();
             will(onConsecutiveCalls(
@@ -61,9 +63,9 @@ public class ConsoleInputReaderTest {
                 returnValue("D5 D3 D1")
             ));
             oneOf(notifier).notifyInputError(with(containsString(WRONG_INPUT)));
-            exactly(2).of(notifier).askForDiceToRerun("anything");
+            exactly(2).of(notifier).askForDiceToRerun("[3] Dice to re-run:");
         }});
 
-        assertThat(consoleInputReader.diceToRerun("anything"), is(Arrays.asList(4, 2, 0)));
+        assertThat(consoleInputReader.diceToRerun(rerunNumber), is(Arrays.asList(4, 2, 0)));
     }
 }

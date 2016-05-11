@@ -3,5 +3,5 @@ package com.dodevjutsu.kata.yatzy.core;
 import java.util.List;
 
 public interface InputReader {
-    List<Integer> diceToRerun(String rerunMessage);
+    List<Integer> diceToRerun(int rerunNumber);
 }

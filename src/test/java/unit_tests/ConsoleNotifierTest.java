@@ -49,7 +49,7 @@ public class ConsoleNotifierTest {
     }
 
     @Test
-    public void asks_user_to_input_dice_to_reroll() {
+    public void asks_user_to_input_dice_to_rerun() {
         context.checking(new Expectations() {{
             oneOf(console).print("[1] Dice to re-run:");
         }});

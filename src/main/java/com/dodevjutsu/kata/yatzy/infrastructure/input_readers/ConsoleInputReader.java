@@ -15,20 +15,24 @@ public class ConsoleInputReader implements InputReader {
         this.notifier = notifier;
     }
 
-    public List<Integer> diceToRerun(String rerunMessage) {
-        notifier.askForDiceToRerun(rerunMessage);
-        return extractDiceToRerun(rerunMessage);
+    public List<Integer> diceToRerun(int rerunNumber) {
+        notifier.askForDiceToRerun(requestPhrase(rerunNumber));
+        return extractDiceToRerun(rerunNumber);
     }
 
-    private List<Integer> extractDiceToRerun(String rerunMessage) {
+    private List<Integer> extractDiceToRerun(int rerunNumber) {
         List<Integer> diceToRerun;
         String line = console.readLine();
         try {
             diceToRerun = new InputLine(line).extractDiceIndexes();
         } catch(WrongInputException e) {
             notifier.notifyInputError(e.getMessage());
-            diceToRerun = diceToRerun(rerunMessage);
+            diceToRerun = diceToRerun(rerunNumber);
         }
         return diceToRerun;
+    }
+
+    public String requestPhrase(int rerunNumber) {
+        return "[" + rerunNumber + "] Dice to re-run:";
     }
 }
